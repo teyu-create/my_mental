@@ -8,4 +8,8 @@ use Illuminate\Http\Request;
 class MentalController extends Controller
 {
     //
+    public function add()
+    {
+        return view('guest.mental.create');
+    }
 }
