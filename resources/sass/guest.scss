@@ -1,12 +1,12 @@
 body {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #000;
+    background-image: linear-gradient(0deg, transparent 31px, #fff 32px), linear-gradient(90deg,  transparent 31px, #fff 32px);
+    background-size: 32px 32px;
+    background-color: #72e2b3;
     color: #fff;
   }
   
   .navbar-laravel {
-    background-color: #000;
+    background-color: #72e2b3;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   }
   
@@ -24,7 +24,7 @@ body {
   
   .list-group-item {
     border-color: #fff;
-    background-color: #000;
+    background-color: #72e2b3;
   }
   
   .login-box {
@@ -46,5 +46,5 @@ body {
   .list-group-item {
     color: #fff;
     border-color: #fff;
-    background-color: #000;
+    background-color: #72e2b3;
   }
