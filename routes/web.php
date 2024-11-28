@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+use App\Http\Controllers\Guest\MentalController;
+Route::controller(MentalController::class)->group(function() {
+    Route::get('mental/create', 'add');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
