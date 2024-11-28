@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\Guest\MentalController;
-Route::controller(MentalController::class)->group(function() {
+Route::controller(MentalController::class)->middleware('auth')->group(function() {
     Route::get('mental/create', 'add');
 });
 
