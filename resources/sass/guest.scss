@@ -3,6 +3,10 @@ body {
     color: #88604e;
   }
   
+  .container {
+    padding: 2rem;
+  }
+
   .navbar-laravel {
     background-image: linear-gradient(0deg, transparent 31px, #fff 32px), linear-gradient(90deg,  transparent 31px, #fff 32px);
     background-size: 32px 32px;
@@ -52,5 +56,6 @@ body {
     background-image: linear-gradient(0deg, transparent 31px, #fff 32px), linear-gradient(90deg,  transparent 31px, #fff 32px);
     background-size: 32px 32px;
     background-color: #72e2b3;
+    padding: 2rem;
     color: #fff;
   }
