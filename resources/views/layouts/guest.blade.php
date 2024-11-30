@@ -27,21 +27,24 @@
         <link href="{{ asset('css/guest.css') }}" rel="stylesheet">
     </head>
     <body>
-        <div id="app">
-            {{-- 画面上部に表示するナビゲーションバーです。 --}}
-            <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
-                <div class="container justify-content-center">
-                    <a class="navbar-brand m-0" href="{{ url('/') }}">
-                     <img src= "{{ asset('image/まいにちのメンタル.png') }}"  width="800" alt="まいにちのメンタルロゴ" />
-                    </a>
-                </div>
-            </nav>
-            {{-- ここまでナビゲーションバー --}}
+        <div class="wrapper">
 
-            <main class="py-4">
-                {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
-                @yield('content')
-            </main>
+            <div id="app">
+                {{-- 画面上部に表示するナビゲーションバーです。 --}}
+                <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
+                    <div class="container justify-content-center">
+                        <a class="navbar-brand m-0" href="{{ url('/') }}">
+                        <img src= "{{ asset('image/まいにちのメンタル.png') }}"  width="800" alt="まいにちのメンタルロゴ" />
+                        </a>
+                    </div>
+                </nav>
+                {{-- ここまでナビゲーションバー --}}
+
+                <main class="py-4">
+                    {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
+                    @yield('content')
+                </main>
+            </div>
         </div>
     </body>
     <footer class="footer">

@@ -58,4 +58,11 @@ body {
   background-color: #72e2b3;
   padding: 2rem;
   color: #fff;
+  margin-top: auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
