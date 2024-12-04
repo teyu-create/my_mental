@@ -31,15 +31,14 @@
 
             <div id="app">
                 {{-- 画面上部に表示するナビゲーションバーです。 --}}
-                <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
-                    <div class="container justify-content-center">
-                        <a class="navbar-brand m-0" href="{{ url('/') }}">
-                        <img src= "{{ asset('image/まいにちのメンタル.png') }}"  width="800" alt="まいにちのメンタルロゴ" />
-                        </a>
-                    </div>
-                </nav>
+                <nav class="navbar bg-body-tertiary">
+                  <div class="container">
+                      <a class="navbar-brand" href="http://127.0.0.1:8080">
+                         <img alt="まいにちのメンタルロゴ" width="800" src="{{ asset('image/まいにちのメンタル.png') }}">
+                      </a>
+                  </div>
+                </nav>                
                 {{-- ここまでナビゲーションバー --}}
-
                 <main class="py-4">
                     {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                     @yield('content')

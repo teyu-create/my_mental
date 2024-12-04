@@ -7,11 +7,12 @@ body {
     padding: 2rem;
   }
 
-  .navbar-laravel {
-    background-image: linear-gradient(0deg, transparent 31px, #fff 32px), linear-gradient(90deg,  transparent 31px, #fff 32px);
-    background-size: 32px 32px;
-    background-color: #72e2b3;
-  }
+  
+.bg-body-tertiary {
+  background-image: linear-gradient(0deg, transparent 31px, #fff 32px), linear-gradient(90deg, transparent 31px, #fff 32px);
+  background-size: 32px 32px;
+  background-color: #72e2b3;
+}
   
   .navbar-brand {
     color: #fff !important;
