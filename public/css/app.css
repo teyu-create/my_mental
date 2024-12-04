@@ -200,9 +200,7 @@ body {
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
-  color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -3944,8 +3942,7 @@ textarea.form-control-lg {
 .navbar > .container-xxl {
   display: flex;
   flex-wrap: inherit;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .navbar-brand {
   padding-top: var(--bs-navbar-brand-padding-y);
@@ -8781,11 +8778,6 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-secondary-bg-rgb), var(--bs-bg-opacity)) !important;
 }
 
-.bg-body-tertiary {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
-}
-
 .bg-opacity-10 {
   --bs-bg-opacity: 0.1;
 }
@@ -11965,4 +11957,11 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+
+.dotline {
+ background-image : linear-gradient(to right, #88604e 8px, transparent 8px);
+ background-size: 20px 3px;
+ background-repeat: repeat-x;
+ background-position: bottom;
 }
