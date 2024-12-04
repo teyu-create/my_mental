@@ -12,6 +12,15 @@
         <h2>今日の気分は？</h2>
       </div>
       <div class="d-flex justify-content-between">
+        <img src="http://127.0.0.1:8080/image/晴れマーク.png" style="
+            height: 136px;
+            padding-top: 10px;">
+        <img src="http://127.0.0.1:8080/image/くもりマーク.png" style="
+            height: 141px;
+            padding-top: 50px;">
+        <img src="http://127.0.0.1:8080/image/雨マーク.png">
+     </div>
+      <div class="d-flex justify-content-between">
             <div class="form-check form-check-inline">
              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 
              <label class="form-check-label" for="inlineRadio1">晴れ</label>
