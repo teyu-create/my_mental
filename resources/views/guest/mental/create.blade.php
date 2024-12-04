@@ -7,11 +7,23 @@
 
 {{-- guest.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <h2>今日の気分は？</h2>
+  <div class="container">
+      <div class="col-md-8 mx-auto">
+        <h2>今日の気分は？</h2>
+      </div>
+      <div class="d-flex justify-content-between">
+            <div class="form-check form-check-inline">
+             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 
+             <label class="form-check-label" for="inlineRadio1">晴れ</label>
             </div>
-        </div>
-    </div>
+            <div class="form-check form-check-inline">
+             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+             <label class="form-check-label" for="inlineRadio2">くもり</label>
+            </div>
+            <div class="form-check form-check-inline">
+             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+             <label class="form-check-label" for="inlineRadio3">雨</label>
+            </div>
+      </div>
+  </div>
 @endsection
