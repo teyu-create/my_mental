@@ -33,7 +33,7 @@
                 {{-- 画面上部に表示するナビゲーションバーです。 --}}
                 <nav class="navbar bg-body-tertiary">
                   <div class="container">
-                      <a class="navbar-brand" href="http://127.0.0.1:8080">
+                      <a class="navbar-brand" href="{{ url('/') }}">
                          <img alt="まいにちのメンタルロゴ" width="800" src="{{ asset('image/まいにちのメンタル.png') }}">
                       </a>
                   </div>
