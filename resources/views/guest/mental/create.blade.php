@@ -38,6 +38,6 @@
           </div>
         </div>
       </div>
-      <a class="btn btn-primary" href="#" role="button">登録</a>
+      <a class="btn btn-primary" href="{{ url('mental_list') }}" role="button">登録</a>
   </div>
 @endsection

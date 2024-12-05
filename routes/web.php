@@ -20,6 +20,7 @@ Route::get('/', function () {
 use App\Http\Controllers\Guest\MentalController;
 Route::controller(MentalController::class)->middleware('auth')->group(function() {
     Route::get('mental/create', 'add');
+    Route::get('mental_list','index');
 });
 
 Auth::routes();

@@ -12,4 +12,9 @@ class MentalController extends Controller
     {
         return view('guest.mental.create');
     }
+
+    public function index()
+    {
+        return view('guest.mental.list');
+    }
 }
