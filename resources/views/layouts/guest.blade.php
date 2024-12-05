@@ -33,6 +33,29 @@
                 {{-- 画面上部に表示するナビゲーションバーです。 --}}
                 <nav class="navbar bg-body-tertiary">
                   <div class="container">
+                            {{-- 以下を追記 --}}
+                            <!-- Authentication Links -->
+                            {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
+                            @guest
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
+                                {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
+                              @else
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                            {{ __('messages.logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
+                            {{-- 以上までを追記 --}}
                       <a class="navbar-brand" href="{{ url('mental_list') }}">
                          <img alt="まいにちのメンタルロゴ" width="800" src="{{ asset('image/まいにちのメンタル.png') }}">
                       </a>
