@@ -25,4 +25,4 @@ Route::controller(MentalController::class)->middleware('auth')->group(function()
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/mental_list', [App\Http\Controllers\TopController::class, 'index']);
