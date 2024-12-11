@@ -37,7 +37,7 @@
                             <!-- Authentication Links -->
                             {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
                             @guest
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
+                                <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a> -->
                                 {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                               @else
                                 <li class="nav-item dropdown">
