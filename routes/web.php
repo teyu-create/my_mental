@@ -25,7 +25,8 @@ Route::get('/', function () {
 use App\Http\Controllers\Guest\MentalController;
 Route::controller(MentalController::class)->middleware('auth')->group(function() {
     Route::get('mental/create', 'add')->name('mental.add');
-    Route::get('mental_list','index');// URL を変更する必要がある？
+    //Route::get('mental/create', 'create')->name('mental.create');
+   // Route::get('mental_list','index');// URL を変更する必要がある？
 });
 
 Auth::routes();

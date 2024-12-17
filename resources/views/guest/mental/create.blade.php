@@ -38,6 +38,40 @@
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h2>睡眠時間</h2>
+            <div class="row gx-5">
+             きのうの夜
+              <input type="text" class="form-control">
+             に寝て
+            </div>
+            <p>
+              <div class="row gx-5">
+               きょうの朝
+                <input type="text" class="form-control">
+               に起きた
+              </div>
+            </p>
+        </div>
+        <div class="col-md-6">
+          <h2>ごはん</h2>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">朝</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">昼</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+            <label class="form-check-label" for="inlineCheckbox3">夜</label>
+          </div>
+        </div>
+      </div>
+     
       <a class="btn btn-primary" href="{{ url('mental_list') }}" role="button">登録</a>
   </div>
 @endsection
