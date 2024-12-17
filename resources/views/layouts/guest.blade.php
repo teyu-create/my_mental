@@ -57,7 +57,7 @@
                             @endguest
                             {{-- 以上までを追記 --}}
                       <a class="navbar-brand" href="{{ url('mental_list') }}">
-                         <img alt="まいにちのメンタルロゴ" width="800" src="{{ asset('image/まいにちのメンタル.png') }}">
+                         <img alt="まいにちのメンタルロゴ" width=100% src="{{ asset('image/まいにちのメンタル.png') }}">
                       </a>
                   </div>
                 </nav>                
