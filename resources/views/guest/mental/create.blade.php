@@ -71,7 +71,28 @@
           </div>
         </div>
       </div>
-     
+      <div class="row">
+        <h2>お仕事/学校</h2>
+        <div class="go-stop-bottun"style="padding-bottom: 30px;">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"> 
+            <label class="form-check-label" for="inlineRadio4">行った</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+            <label class="form-check-label" for="inlineRadio5">休んだ</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+            <label class="form-check-label" for="inlineRadio6">休日</label>
+          </div>
+        </div>
+
+        <h2>どんな１日だった？</h2>
+        <div class="mb-3">
+          <textarea class="form-control2"style="height: 126px; width: 706px;"></textarea>
+        </div>
+      </div>     
       <a class="btn btn-primary" href="{{ url('mental_list') }}" role="button">登録</a>
   </div>
 @endsection
