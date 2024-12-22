@@ -17,7 +17,7 @@ Route::get('/', function () {
     // もしログイン状態だったら /mental_list に移動する
     $user = auth()->user();
     if (is_null($user) == false) {
-        return redirect()->route('mental.list.index');// リダイレクト＝別画面（ＵＲＬ）に遷移する
+        return redirect()->route('mental.list.after_login');// リダイレクト＝別画面（ＵＲＬ）に遷移する
     }
     return view('top');
 });
@@ -25,10 +25,10 @@ Route::get('/', function () {
 use App\Http\Controllers\Guest\MentalController;
 Route::controller(MentalController::class)->middleware('auth')->group(function() {
     Route::get('mental/create', 'add')->name('mental.add');
-    //Route::get('mental/create', 'create')->name('mental.create');
-   // Route::get('mental_list','index');// URL を変更する必要がある？
-});
+    Route::post('mental/create', 'create')->name('mental.create');
+    Route::get('mental_list','index');
+}); 
 
 Auth::routes();
 
-Route::get('mental_list', [App\Http\Controllers\TopController::class, 'index'])->name('mental.list.index');
+Route::get('mental_list', [App\Http\Controllers\TopController::class, 'after_login'])->name('mental.list.after_login');

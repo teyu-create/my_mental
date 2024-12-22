@@ -9,6 +9,14 @@
 @section('content')
   <div class="container">
         <h2>今日の気分は？</h2>
+        <form action="{{ route('mental.create') }}" method="post" enctype="multipart/form-data">
+              @if (count($errors) > 0)
+                  <ul>
+                      @foreach($errors->all() as $e)
+                          <li>{{ $e }}</li>
+                      @endforeach
+                  </ul>
+              @endif
             <div class="d-flex justify-content-between">
               <img src="{{ asset('image/晴れちゃん.png') }}">
               <img src="{{ asset('image/くもりちゃん.png') }}">

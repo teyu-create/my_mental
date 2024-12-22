@@ -21,7 +21,7 @@ class TopController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function after_login()
     {
         return view('guest.mental.list');
     }
