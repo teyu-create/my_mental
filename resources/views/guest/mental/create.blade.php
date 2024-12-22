@@ -9,10 +9,11 @@
 @section('content')
   <div class="container">
         <h2>今日の気分は？</h2>
-        <div class ="mental_choice">
-            <img width=30% src="{{ asset('image/晴れマーク.png') }}">
-            <img width=30% src="{{ asset('image/くもりマーク.png') }}">
-            <img width=30% src="{{ asset('image/雨マーク.png') }}">
+            <div class="d-flex justify-content-between">
+              <img src="{{ asset('image/晴れちゃん.png') }}">
+              <img src="{{ asset('image/くもりちゃん.png') }}">
+              <img src="{{ asset('image/雨ちゃん.png') }}">
+            </div>
            <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 
@@ -27,43 +28,43 @@
                 <label class="form-check-label" for="inlineRadio3">雨</label>
               </div>
            </div>
-        </div>
-
       <div class="row">
         <div class="col-md-6">
           <h2>睡眠時間</h2>
-            <div class="row gx-5">
-             きのうの夜
-              <input type="text" class="form-control">
-             に寝て
-            </div>
-            <p>
               <div class="row gx-5">
-               きょうの朝
-                <input type="text" class="form-control">
-               に起きた
+              きのうの夜
+                <input type="text" class="form-control-sleep">
+              に寝て、
               </div>
-            </p>
+              <p>
+                <div class="row gx-5">
+                きょうの朝
+                  <input type="text" class="form-control-sleep">
+                に起きた
+                </div>
+              </p>
         </div>
         <div class="col-md-6">
           <h2>ごはん</h2>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1">朝</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2">昼</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-            <label class="form-check-label" for="inlineCheckbox3">夜</label>
-          </div>
+           <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">朝</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">昼</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                <label class="form-check-label" for="inlineCheckbox3">夜</label>
+              </div>
+           </div>
         </div>
       </div>
       <div class="row">
         <h2>お仕事/学校</h2>
-        <div class="go-stop-bottun"style="padding-bottom: 30px;">
+        <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"> 
             <label class="form-check-label" for="inlineRadio4">行った</label>
