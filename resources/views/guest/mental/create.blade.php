@@ -18,19 +18,22 @@
                         </ul>
                     @endif
                   <div class="d-flex justify-content-between">
-                    <img src="{{ asset('image/晴れちゃん.png') }}">
-                    <img src="{{ asset('image/くもりちゃん.png') }}">
-                    <img src="{{ asset('image/雨ちゃん.png') }}">
+                    <label for="sunny"><img src="{{ asset('image/晴れちゃん.png') }}"></label>
+                    <label for="cloudy"><img src="{{ asset('image/くもりちゃん.png') }}"></label>
+                    <label for="rainy"><img src="{{ asset('image/雨ちゃん.png') }}"></label>
                   </div>
                  <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="mental_weather"  value="sunny" checked>晴れ
+                      <input class="form-check-input" type="radio" name="mental_weather"  value="晴れ" id="sunny" checked >
+                      <label for="sunny">晴れ</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="mental_weather"  value="cloudy">くもり
+                      <input class="form-check-input" type="radio" name="mental_weather"  value="くもり" id="cloudy">
+                      <label for="cloudy">くもり</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="mental_weather" value="rainy">雨
+                      <input class="form-check-input" type="radio" name="mental_weather" value="雨" id="rainy">
+                      <label for="rainy">雨</label>
                     </div>
                  </div>
             <div class="row">
@@ -71,16 +74,16 @@
               <h2>お仕事/学校</h2>
               <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"> 
-                  <label class="form-check-label" for="inlineRadio4">行った</label>
+                  <input class="form-check-input" type="radio" name="go_or_home" id="gogo" value="行った" checked> 
+                  <label for="gogo">行った</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
-                  <label class="form-check-label" for="inlineRadio5">休んだ</label>
+                  <input class="form-check-input" type="radio" name="go_or_home" id="in_home" value="休んだ">
+                  <label for="in_home">休んだ</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
-                  <label class="form-check-label" for="inlineRadio6">休日</label>
+                  <input class="form-check-input" type="radio" name="go_or_home" id="holiday" value="休日">
+                  <label for="holiday">休日</label>
                 </div>
               </div>
 

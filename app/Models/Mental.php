@@ -12,9 +12,7 @@ class Mental extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'mental_weather' => 'required',
         'sleep_time' => 'required',
-        'go' => 'required',
         'diary' => 'required',
     );
 }
