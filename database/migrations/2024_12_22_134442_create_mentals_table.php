@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('mentals', function (Blueprint $table) {
             $table->id();
             $table->string('mental_weather'); // 気分（天気マーク）を保存するカラム
-            $table->string('sleep_time');  // 睡眠時間を保存するカラム
+            $table->string('sleep_time');  // 就寝時間を保存するカラム
+            $table->string('up_time');  // 起床時間を保存するカラム
             $table->string('eat');  // ごはんを保存するカラム
-            $table->string('go_or_home'); // お仕事・学校を保存するカラム
+            $table->string('go','go_or_home'); // お仕事・学校を保存するカラム
             $table->string('diary'); //どんな1日だったかを保存するカラム
             $table->timestamps();
         });

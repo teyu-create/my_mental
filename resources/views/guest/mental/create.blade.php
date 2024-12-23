@@ -41,13 +41,13 @@
                 <h2>睡眠時間</h2>
                     <div class="row gx-5">
                     きのうの夜
-                      <input type="text" class="form-control-sleep">
+                      <input type="text" class="form-control-sleep" name="sleep_time" value = "{{ old('sleep_time') }}">
                     に寝て、
                     </div>
                     <p>
                       <div class="row gx-5">
                       きょうの朝
-                        <input type="text" class="form-control-sleep">
+                        <input type="text" class="form-control-sleep" name="up_time" value = "{{ old('up_time') }}">
                       に起きた
                       </div>
                     </p>
@@ -56,16 +56,16 @@
                 <h2>ごはん</h2>
                 <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                      <label class="form-check-label" for="inlineCheckbox1">朝</label>
+                      <input class="form-check-input" name="eat" type="checkbox" id="morning" value="朝">
+                      <label for="morning">朝</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                      <label class="form-check-label" for="inlineCheckbox2">昼</label>
+                      <input class="form-check-input" name="eat" type="checkbox" id="noon" value="昼">
+                      <label for="noon">昼</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                      <label class="form-check-label" for="inlineCheckbox3">夜</label>
+                      <input class="form-check-input" name="eat" type="checkbox" id="night" value="夜">
+                      <label for="night">夜</label>
                     </div>
                 </div>
               </div>
@@ -89,7 +89,7 @@
 
               <h2>どんな１日だった？</h2>
               <div class="mb-3">
-                <textarea class="form-control2"></textarea>
+                <textarea class="form-control2" name="diary">{{ old('diary') }}</textarea>
               </div>
             </div> 
             @csrf    

@@ -167,6 +167,7 @@ return [
 
     'attributes' => [
         'sleep_time' => '睡眠時間',
+        'up_time' => '起床時間' ,
         'diary' => 'どんな1日だったか',
     ],
 

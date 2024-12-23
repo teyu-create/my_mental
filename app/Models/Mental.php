@@ -13,6 +13,7 @@ class Mental extends Model
 
     public static $rules = array(
         'sleep_time' => 'required',
+        'up_time' => 'required',
         'diary' => 'required',
     );
 }
