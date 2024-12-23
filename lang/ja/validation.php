@@ -168,7 +168,6 @@ return [
     'attributes' => [
         'mental_weather' => '気分（天気マーク）',
         'sleep_time' => '睡眠時間',
-        'eat' => 'ごはん',
         'go' => 'お仕事・学校',
         'diary' => 'どんな1日だったか',
     ],

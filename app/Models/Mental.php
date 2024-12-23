@@ -14,7 +14,6 @@ class Mental extends Model
     public static $rules = array(
         'mental_weather' => 'required',
         'sleep_time' => 'required',
-        'eat' => 'required',
         'go' => 'required',
         'diary' => 'required',
     );
