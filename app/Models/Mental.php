@@ -16,4 +16,9 @@ class Mental extends Model
         'up_time' => 'required',
         'diary' => 'required',
     );
+
+     /* カラムのデータを配列（array）へ型の変換($casts)*/
+    protected $casts = [
+        'eat' => 'array',
+    ];
 }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('sleep_time');  // 就寝時間を保存するカラム
             $table->string('up_time');  // 起床時間を保存するカラム
             $table->string('eat');  // ごはんを保存するカラム
-            $table->string('go','go_or_home'); // お仕事・学校を保存するカラム
+            $table->string('go_or_home'); // お仕事・学校を保存するカラム
             $table->string('diary'); //どんな1日だったかを保存するカラム
             $table->timestamps();
         });
