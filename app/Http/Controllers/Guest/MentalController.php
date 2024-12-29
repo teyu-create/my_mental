@@ -63,4 +63,30 @@ class MentalController extends Controller
         }
         return view('guest.mental.list', ['posts' => $posts, 'cond_weather' => $cond_weather]);
     }
+
+    public function edit(Request $request)
+    {
+        // Mental Modelからデータを取得する
+        $mental = Mental::find($request->id);
+        if (empty($mental)) {
+            abort(404);
+        }
+        return view('guest.mental.edit', ['mental_form' => $mental]);
+    }
+
+    public function update(Request $request)
+    {
+       // Validationをかける
+       $this->validate($request, Mental::$rules);
+       // News Modelからデータを取得する
+       $news = Mental::find($request->id);
+       // 送信されてきたフォームデータを格納する
+       $mental_form = $request->all();
+       unset($mental_form['_token']);
+
+       // 該当するデータを上書きして保存する
+       $mental->fill($mental_form)->save();
+
+       return redirect()->route('mental.list.index'); 
+    }
 }

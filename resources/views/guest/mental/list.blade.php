@@ -55,6 +55,11 @@
                                     @endif
                                     <td>{{ $mental->go_or_home }}</td>
                                     <td>{{ Str::limit($mental->diary, 250) }}</td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ route('mental.edit', ['id' => $mental->id]) }}">編集</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

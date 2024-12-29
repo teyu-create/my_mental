@@ -27,6 +27,8 @@ Route::controller(MentalController::class)->middleware('auth')->group(function()
     Route::get('mental/create', 'add')->name('mental.add');
     Route::post('mental/create', 'create')->name('mental.create');
     Route::get('mental_list','index')->name('mental.list.index');
+    Route::get('mental/edit','edit')->name('mental.edit');
+    Route::post('mental/edit','update')->name('mental.update');
 }); 
 
 Auth::routes();
