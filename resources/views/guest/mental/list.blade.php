@@ -15,13 +15,12 @@
             <div class="col-md-8">
                 <form action="{{ route('mental.list.index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">どの気分を検索する？</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_weather" value="{{ $cond_weather }}">
                         </div>
                         <div class="col-md-2">
                             @csrf
-                            <input type="submit" class="btn btn-primary" value="検索">
+                            <input type="submit" class="btn btn-primary" value="気分を検索">
                         </div>
                     </div>
                 </form>
@@ -33,7 +32,7 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="20%">日付</th>
+                                <th width="15%">日付</th>
                                 <th width="10%">気分</th>
                                 <th width="10%">睡眠時間</th>
                                 <th width="10%">起床時間</th>

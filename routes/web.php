@@ -30,5 +30,3 @@ Route::controller(MentalController::class)->middleware('auth')->group(function()
 }); 
 
 Auth::routes();
-
-//Route::get('mental_list', [App\Http\Controllers\TopController::class, 'after_login'])->name('mental.list.after_login');
