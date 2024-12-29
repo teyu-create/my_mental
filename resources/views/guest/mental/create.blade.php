@@ -56,15 +56,15 @@
                 <h2>ごはん</h2>
                 <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="eat[]" type="checkbox" id="morning" value='朝'>
+                      <input class="form-check-input" name="eat[]" type="checkbox" id="morning" value="朝">
                       <label for="morning">朝</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="eat[]" type="checkbox" id="noon" value='昼'>
+                      <input class="form-check-input" name="eat[]" type="checkbox" id="noon" value="昼">
                       <label for="noon">昼</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="eat[]" type="checkbox" id="night" value='夜'>
+                      <input class="form-check-input" name="eat[]" type="checkbox" id="night" value="夜">
                       <label for="night">夜</label>
                     </div>
                 </div>

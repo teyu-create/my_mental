@@ -17,7 +17,7 @@ class Mental extends Model
         'diary' => 'required',
     );
 
-     /* カラムのデータを配列（array）へ型の変換($casts)*/
+     // カラムのデータを配列（array）へ型の変換($casts)
     protected $casts = [
         'eat' => 'array',
     ];
