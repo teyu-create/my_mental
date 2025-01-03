@@ -24,15 +24,15 @@
                   </div>
                  <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="mental_weather"  value="晴れ" id="sunny" checked >
+                      <input type="radio" name="mental_weather" class="form-check-input" id="sunny" value="晴れ" {{ old('mental_weather') == '晴れ' ? 'checked' : '' }} checked >
                       <label for="sunny">晴れ</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="mental_weather"  value="くもり" id="cloudy">
+                      <input type="radio" name="mental_weather" class="form-check-input" id="cloudy" value="くもり" {{ old('mental_weather') == 'くもり' ? 'checked' : '' }}>
                       <label for="cloudy">くもり</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="mental_weather" value="雨" id="rainy">
+                      <input type="radio" name="mental_weather" class="form-check-input" id="rainy" value="雨" {{ old('mental_weather') == '雨' ? 'checked' : '' }}> 
                       <label for="rainy">雨</label>
                     </div>
                  </div>
