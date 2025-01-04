@@ -56,15 +56,15 @@
                 <h2>ごはん</h2>
                 <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="eat[]" type="checkbox" id="morning" value="朝">
+                      <input class="form-check-input" name="eat[]" type="checkbox" id="morning" value="朝" {{ old('eat') == '朝' ? 'checked' : '' }}>
                       <label for="morning">朝</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="eat[]" type="checkbox" id="noon" value="昼">
+                      <input class="form-check-input" name="eat[]" type="checkbox" id="noon" value="昼" {{ old('eat') == '昼' ? 'checked' : '' }}>
                       <label for="noon">昼</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="eat[]" type="checkbox" id="night" value="夜">
+                      <input class="form-check-input" name="eat[]" type="checkbox" id="night" value="夜"  {{ old('eat') == '夜' ? 'checked' : '' }}>
                       <label for="night">夜</label>
                     </div>
                 </div>
@@ -74,15 +74,15 @@
               <h2>お仕事/学校</h2>
               <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="go_or_home" id="gogo" value="行った" checked> 
+                  <input class="form-check-input" type="radio" name="go_or_home" id="gogo" value="行った" {{ old('go_or_home') == '行った' ? 'checked' : '' }} checked> 
                   <label for="gogo">行った</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="go_or_home" id="in_home" value="休んだ">
+                  <input class="form-check-input" type="radio" name="go_or_home" id="in_home" value="休んだ" {{ old('go_or_home') == '休んだ' ? 'checked' : '' }}>
                   <label for="in_home">休んだ</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="go_or_home" id="holiday" value="休日">
+                  <input class="form-check-input" type="radio" name="go_or_home" id="holiday" value="休日" {{ old('go_or_home') == '休日' ? 'checked' : '' }}>
                   <label for="holiday">休日</label>
                 </div>
               </div>
