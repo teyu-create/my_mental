@@ -71,10 +71,6 @@ class MentalController extends Controller
         if (empty($mental)) {
             abort(404);
         }
-        /*if (is_array($mental['eat'])){
-           //$mental['eat'] 配列を文字列に変換して $mental->eat に代入する
-            $mental->eat = implode(",", $mental['eat']);
-        }*/
         
         return view('guest.mental.edit', ['mental_form' => $mental]);
     }
@@ -89,7 +85,6 @@ class MentalController extends Controller
        $mental_form = $request->all();
        unset($mental_form['_token']);
 
-       //dd($mental_form);
 
        // 該当するデータを上書きして保存する
        $mental->fill($mental_form)->save();

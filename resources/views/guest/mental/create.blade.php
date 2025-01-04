@@ -64,7 +64,7 @@
                       <label for="noon">昼</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="eat[]" type="checkbox" id="night" value="夜"  {{ old('eat') == '夜' ? 'checked' : '' }}>
+                      <input class="form-check-input" name="eat[]" type="checkbox" id="night" value="夜" {{ old('eat') == '夜' ? 'checked' : '' }}>
                       <label for="night">夜</label>
                     </div>
                 </div>
