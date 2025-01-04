@@ -56,16 +56,34 @@
                 <h2>ごはん</h2>
                 <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="eat[]" type="checkbox" id="morning" value="朝" {{ old('eat') == '朝' ? 'checked' : '' }}>
-                      <label for="morning">朝</label>
+                    <label for="morning">朝</label>
+                      @if(is_array(old('eat')) and in_array("朝", old('eat')))
+                        <input class="form-check-input" name="eat[]" type="checkbox" id="morning" value ="朝" checked>
+                          @elseif (!is_array(old('eat'))and str_contains(old('eat'),"朝")) 
+                            <input class="form-check-input" name="eat[]" type="checkbox" id="morning" value ="朝" checked>
+                          @else
+                        <input class="form-check-input" name="eat[]" type="checkbox" id="morning" value ="朝" >
+                      @endif                    
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="eat[]" type="checkbox" id="noon" value="昼" {{ old('eat') == '昼' ? 'checked' : '' }}>
-                      <label for="noon">昼</label>
+                    <label for="noon">昼</label>
+                      @if(is_array(old('eat')) and in_array("昼", old('eat')))
+                        <input class="form-check-input" name="eat[]" type="checkbox" id="noon" value ="昼" checked>
+                          @elseif (!is_array(old('eat'))and str_contains(old('eat'),"昼")) 
+                            <input class="form-check-input" name="eat[]" type="checkbox" id="noon" value ="昼" checked>
+                          @else
+                        <input class="form-check-input" name="eat[]" type="checkbox" id="noon" value ="昼" >
+                      @endif                    
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="eat[]" type="checkbox" id="night" value="夜" {{ old('eat') == '夜' ? 'checked' : '' }}>
-                      <label for="night">夜</label>
+                    <label for="night">夜</label>
+                      @if(is_array(old('eat')) and in_array("夜", old('eat')))
+                        <input class="form-check-input" name="eat[]" type="checkbox" id="night" value ="夜" checked>
+                          @elseif (!is_array(old('eat'))and str_contains(old('eat'),"夜")) 
+                            <input class="form-check-input" name="eat[]" type="checkbox" id="night" value ="夜" checked>
+                          @else
+                        <input class="form-check-input" name="eat[]" type="checkbox" id="night" value ="夜" >
+                      @endif                    
                     </div>
                 </div>
               </div>
