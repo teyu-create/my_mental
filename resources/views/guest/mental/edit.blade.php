@@ -105,6 +105,7 @@
                         <textarea class="form-control2" name="diary">{{ $mental_form->diary }}</textarea>
                     </div>
                 </div> 
+            <input type="hidden" name="id" value="{{ $mental_form->id }}">
             @csrf    
             <input type="submit" class="btn btn-primary" value="更新">
         </form>

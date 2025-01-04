@@ -83,8 +83,10 @@ class MentalController extends Controller
        $mental = Mental::find($request->id);
        // 送信されてきたフォームデータを格納する
        $mental_form = $request->all();
+      
        unset($mental_form['_token']);
 
+       //dd($mental_form);
 
        // 該当するデータを上書きして保存する
        $mental->fill($mental_form)->save();

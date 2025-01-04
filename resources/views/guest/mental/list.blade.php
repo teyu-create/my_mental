@@ -44,7 +44,7 @@
                         <tbody>
                             @foreach($posts as $mental)
                                 <tr>
-                                    <td>{{ Str::limit($mental->updated_at,10,"") }}</td>
+                                    <td>{{ Str::limit($mental->created_at,10,"") }}</td>
                                     <td>{{ $mental->mental_weather }}</td>
                                     <td>{{ $mental->sleep_time }}</td>
                                     <td>{{ $mental->up_time }}</td>
@@ -54,7 +54,7 @@
                                     <td>{{ implode(",", $mental->eat) }}</td>{{--配列の場合、中身を","で区切って文字列として表示--}}
                                     @endif
                                     <td>{{ $mental->go_or_home }}</td>
-                                    <td>{{ Str::limit($mental->diary, 250) }}</td>
+                                    <td>{{ Str::limit($mental->diary, 250,"…") }}</td>
                                     <td>
                                         <div>
                                             <a href="{{ route('mental.edit', ['id' => $mental->id]) }}">編集</a>
