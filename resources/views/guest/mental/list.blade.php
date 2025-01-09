@@ -38,6 +38,7 @@
                                 <th width="10%">起床時間</th>-->
                                 <th>ごはん</th>
                                 <th>お仕事／学校</th>
+                                <th width="27%"></th>
                                 <!--<th width="10%">どんな1日？</th>-->
                             </tr>
                         </thead>
@@ -69,10 +70,10 @@
                         </tbody>
                     </table>
             <div class="col-md-4">
-              @if($create_day->empty())<!--変数や配列が空か判断するemptyで当日の記録データがあるか判定し、記録を1日1回に制限-->
-                 <button type="button" class="btn btn-primary" disabled>本日は記録済み</button>
-                 @else
+              @if($create_day->isEmpty())<!--isEmptyでCollection型の変数が空か判断。当日の記録データの有無を判定し、記録を1日1回に制限-->
                  <a href="{{ route('mental.add') }}" role="button" class="btn btn-primary">今日の記録をする</a>
+                 @else
+                 <button type="button" class="btn btn-primary" disabled>本日は記録済み</button>
               @endif
             </div>
         </div>
