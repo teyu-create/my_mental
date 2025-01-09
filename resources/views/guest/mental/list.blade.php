@@ -29,47 +29,47 @@
             </div>
         </div>
         <div class="row">
-            <div class="list-news col-md-12 mx-auto">
-                <div class="row">
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="15%">日付</th>
-                                <th width="10%">気分</th>
-                                <th width="10%">睡眠時間</th>
-                                <th width="10%">起床時間</th>
-                                <th width="10%">ごはん</th>
-                                <th width="15%">お仕事／学校</th>
-                                <th width="50%">どんな1日？</th>
+                                <th width="28%"></th>
+                                <th>気分</th>
+                                <!--<th width="10%">睡眠時間</th>
+                                <th width="10%">起床時間</th>-->
+                                <th>ごはん</th>
+                                <th>お仕事／学校</th>
+                                <!--<th width="10%">どんな1日？</th>-->
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $mental)
                                 <tr>
                                     <td>{{ Str::limit($mental->created_at,10,"") }}</td>
-                                    <td>{{ $mental->mental_weather }}</td>
-                                    <td>{{ $mental->sleep_time }}</td>
-                                    <td>{{ $mental->up_time }}</td>
+                                    @if (false !== strpos("晴れ",$mental->mental_weather))
+                                      <td><img src="{{ asset('image/晴れちゃん.png') }}" style="width: 42px;"></td>
+                                     @elseif(false !== strpos("くもり",$mental->mental_weather))
+                                      <td><img src="{{ asset('image/くもりちゃん.png') }}" style="width: 42px;"></td>
+                                     @else
+                                      <td><img src="{{ asset('image/雨ちゃん.png') }}" style="width: 42px;"></td>
+                                    @endif
+                                    <!--<td>{{ $mental->sleep_time }}</td>
+                                    <td>{{ $mental->up_time }}</td>-->
                                     @if (!is_array($mental->eat)){{--もしeatが配列じゃなかったら、中身をそのまま表示--}}
                                     <td>{{ $mental->eat }}</td>
                                     @else
                                     <td>{{ implode(",", $mental->eat) }}</td>{{--配列の場合、中身を","で区切って文字列として表示--}}
                                     @endif
                                     <td>{{ $mental->go_or_home }}</td>
-                                    <td>{{ Str::limit($mental->diary, 250,"…") }}</td>
                                     <td>
-                                        <div>
-                                            <a href="{{ route('mental.edit', ['id' => $mental->id]) }}">編集</a>
-                                        </div>
+                                     <a href="{{ route('mental.edit', ['id' => $mental->id]) }}" role="button" class="btn btn-primary btn-sm">編集/詳細</a>
                                     </td>
+                                    <!--<td>{{ Str::limit($mental->diary, 250,"…") }}</td>-->
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                </div>
-            </div>
             <div class="col-md-4">
-              @if($create_day->empty())<!--変数や配列が空か判断するemptyで当日の記録データがあるか判定-->
+              @if($create_day->empty())<!--変数や配列が空か判断するemptyで当日の記録データがあるか判定し、記録を1日1回に制限-->
                  <button type="button" class="btn btn-primary" disabled>本日は記録済み</button>
                  @else
                  <a href="{{ route('mental.add') }}" role="button" class="btn btn-primary">今日の記録をする</a>
