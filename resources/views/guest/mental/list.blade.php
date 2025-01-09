@@ -9,9 +9,11 @@
   <div class="container">
       <h2>まいにちの記録</h2>
         <div class="row">
+            <!--
             <div class="col-md-4">
-                <a href="{{ route('mental.add') }}" role="button" class="btn btn-primary">今日の記録をする</a>
+              <a href="{{ route('mental.add') }}" role="button" class="btn btn-primary">今日の記録をする</a>
             </div>
+            -->
             <div class="col-md-8">
                 <form action="{{ route('mental.list.index') }}" method="get">
                     <div class="form-group row">
@@ -65,6 +67,13 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div class="col-md-4">
+              @if($create_day->empty())<!--変数や配列が空か判断するemptyで当日の記録データがあるか判定-->
+                 <button type="button" class="btn btn-primary" disabled>本日は記録済み</button>
+                 @else
+                 <a href="{{ route('mental.add') }}" role="button" class="btn btn-primary">今日の記録をする</a>
+              @endif
             </div>
         </div>
   </div>

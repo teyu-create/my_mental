@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 // 以下の1行を追記することで、Mental Modelが扱えるようになる
 use App\Models\Mental;
+
+use Carbon\Carbon;
 
 class MentalController extends Controller
 {
@@ -18,6 +19,7 @@ class MentalController extends Controller
 
     public function create(Request $request)
     {
+
         // 以下を追記
         // Validationを行う
         $this->validate($request, Mental::$rules);
@@ -61,7 +63,11 @@ class MentalController extends Controller
             // それ以外はすべてのメンタル記録を取得する
             $posts = Mental::all();
         }
-        return view('guest.mental.list', ['posts' => $posts, 'cond_weather' => $cond_weather]);
+        //記録ボタンが1日1回だけ押せるよう、whereDateで当日既に記録したデータがあるか判定
+        $today = Carbon::today();
+        $create_day = Mental::whereDate('created_at', $today)->get();
+
+        return view('guest.mental.list', ['posts' => $posts, 'cond_weather' => $cond_weather, 'create_day' => $create_day]);
     }
 
     public function edit(Request $request)
