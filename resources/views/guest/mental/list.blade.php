@@ -45,26 +45,28 @@
                         <tbody>
                             @foreach($posts as $mental)
                                 <tr>
-                                    <td class="mental-table-body">{{ Str::limit($mental->created_at,10,"") }}</td>
+                                    <td class="mental-table-body border-bottom-0">{{ Str::limit($mental->created_at,10,"") }}</td>
                                     @if (false !== strpos("晴れ",$mental->mental_weather))
-                                      <td class="mental-table-body"><img src="{{ asset('image/晴れちゃん.png') }}" style="width: 42px;"></td>
+                                      <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/晴れちゃん.png') }}" style="width: 42px;"></td>
                                      @elseif(false !== strpos("くもり",$mental->mental_weather))
-                                      <td class="mental-table-body"><img src="{{ asset('image/くもりちゃん.png') }}" style="width: 42px;"></td>
+                                      <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/くもりちゃん.png') }}" style="width: 42px;"></td>
                                      @else
-                                      <td class="mental-table-body"><img src="{{ asset('image/雨ちゃん.png') }}" style="width: 42px;"></td>
+                                      <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/雨ちゃん.png') }}" style="width: 42px;"></td>
                                     @endif
                                     <!--<td>{{ $mental->sleep_time }}</td>
                                     <td>{{ $mental->up_time }}</td>-->
                                     @if (!is_array($mental->eat)){{--もしeatが配列じゃなかったら、中身をそのまま表示--}}
-                                    <td class="mental-table-body">{{ $mental->eat }}</td>
+                                    <td class="mental-table-body border-bottom-0">{{ $mental->eat }}</td>
                                     @else
-                                    <td class="mental-table-body">{{ implode(",", $mental->eat) }}</td>{{--配列の場合、中身を","で区切って文字列として表示--}}
+                                    <td class="mental-table-body border-bottom-0">{{ implode(",", $mental->eat) }}</td>{{--配列の場合、中身を","で区切って文字列として表示--}}
                                     @endif
-                                    <td class="mental-table-body">{{ $mental->go_or_home }}</td>
+                                    <td class="mental-table-body border-bottom-0">{{ $mental->go_or_home }}</td>
                                 </tr>
+                                <tr>
                                      <td colspan="5" align="right">
                                          <a href="{{ route('mental.edit', ['id' => $mental->id]) }}" role="button" class="btn btn-primary btn-sm">編集/詳細</a>
                                      </td>
+                                </tr>
                                     <!--<td>{{ Str::limit($mental->diary, 250,"…") }}</td>-->
                             @endforeach
                         </tbody>
