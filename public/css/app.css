@@ -12047,3 +12047,12 @@ li.nav-item.dropdown {
   text-align: center;
   vertical-align: middle;
 }
+
+.border {
+  border-color: #88604e !important;
+}
+
+.mental-weather-index {
+  font-size: 0;
+  width: 0%;
+}
