@@ -35,13 +35,13 @@
                         <h2>睡眠時間</h2>
                             <div class="row gx-5">
                                 きのうの夜
-                                <input type="text" class="form-control-sleep" name="sleep_time" value = "{{ $mental_form->sleep_time }}">
+                                <input type="time" min="00:00" max="23:59" class="form-control-sleep" name="sleep_time" value = "{{ $mental_form->sleep_time }}">
                                 に寝て、
                             </div>
                             <p>
                             <div class="row gx-5">
                                 きょうの朝
-                                <input type="text" class="form-control-sleep" name="up_time" value = "{{ $mental_form->up_time }}">
+                                <input type="time" min="00:00" max="23:59" class="form-control-sleep" name="up_time" value = "{{ $mental_form->up_time }}">
                                 に起きた
                             </div>
                             </p>

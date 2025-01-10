@@ -6,27 +6,19 @@
 
 {{-- guest.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
-  <div class="container">
-      {{--<h2>まいにちの記録</h2>--}}
+  <div class="container" style="padding-top: 0px;">
                 <form action="{{ route('mental.list.index') }}" method="get">
-                    <div class="form-group row">
-                        <!--<div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_weather" value="{{ $cond_weather }}">
-                        </div>
-                        <div class="col-md-2">
-                            @csrf
-                            <input type="submit" class="btn btn-primary" value="気分を検索">
-                        </div>-->
-                        <div class="col-md-6">
+                    <div class="form-group2 row">
+                        <div class="col-12">
                              @csrf
-                             <label for="index-sunny"><img src="{{ asset('image/晴れちゃん.png') }}" alt="晴れ" style="width: 30px;"></label>
-                             <label for="index-cloudy"><img src="{{ asset('image/くもりちゃん.png') }}" alt="くもり" style="width: 30px;"></label>
-                             <label for="index-rainy"><img src="{{ asset('image/雨ちゃん.png') }}" alt="雨" style="width: 30px;"></label>
-                             <p>
                                  <input type="submit" class="mental-weather-index" id="index-sunny" name="cond_weather" value="晴れ">
                                  <input type="submit" class="mental-weather-index" id="index-cloudy" name="cond_weather" value="くもり">
                                  <input type="submit" class="mental-weather-index" id="index-rainy" name="cond_weather" value="雨">
-                            </p>
+                               <p>
+                                 <label for="index-sunny"><img src="{{ asset('image/晴れちゃん.png') }}" class="rounded-circle" alt="晴れ" style="width: 30px;"></label>
+                                 <label for="index-cloudy"><img src="{{ asset('image/くもりちゃん.png') }}" alt="くもり" style="width: 30px;"></label>
+                                 <label for="index-rainy"><img src="{{ asset('image/雨ちゃん.png') }}" alt="雨" style="width: 30px;"></label>
+                               </p>
                         </div>
                     </div>
                 </form>
