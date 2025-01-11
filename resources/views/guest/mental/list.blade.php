@@ -15,9 +15,9 @@
                                  <input type="submit" class="mental-weather-index" id="index-cloudy" name="cond_weather" value="くもり">
                                  <input type="submit" class="mental-weather-index" id="index-rainy" name="cond_weather" value="雨">
                                <p>
-                                 <label for="index-sunny"><img src="{{ asset('image/晴れちゃん.png') }}" class="rounded-circle" alt="晴れ" style="width: 30px;"></label>
-                                 <label for="index-cloudy"><img src="{{ asset('image/くもりちゃん.png') }}" alt="くもり" style="width: 30px;"></label>
-                                 <label for="index-rainy"><img src="{{ asset('image/雨ちゃん.png') }}" alt="雨" style="width: 30px;"></label>
+                                 <label for="index-sunny"><img src="{{ asset('image/晴れボタン.png') }}" alt="晴れ" style="width: 30px;"></label>
+                                 <label for="index-cloudy"><img src="{{ asset('image/くもりボタン.png') }}" alt="くもり" style="width: 30px;"></label>
+                                 <label for="index-rainy"><img src="{{ asset('image/雨ボタン.png') }}" alt="雨" style="width: 30px;"></label>
                                </p>
                         </div>
                     </div>
