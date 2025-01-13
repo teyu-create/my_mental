@@ -73,5 +73,7 @@
               @endif
             </div>
         </div>
+        <!--ページネーションリンク-->
+         {{ $posts->links() }}
   </div>
 @endsection

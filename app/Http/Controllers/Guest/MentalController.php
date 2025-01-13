@@ -68,17 +68,18 @@ class MentalController extends Controller
 
         if ($cond_weather != null) {
             // 押した天気マークのメンタル記録を取得する
-            $posts = Mental::where('mental_weather', $cond_weather)->get();
+            //$posts = Mental::where('mental_weather', $cond_weather)->get();
+            $posts = Mental::where('mental_weather', $cond_weather)->paginate(7);
         } else {
             // それ以外はすべてのメンタル記録を取得する
-            $posts = Mental::all();
+            $posts = Mental::paginate(7);
         }
         //dd($cond_weather);
-
+        
         //記録ボタンが1日1回だけ押せるよう、whereDateで当日既に記録したデータがあれば取得
         $today = Carbon::today();
         $create_day = Mental::whereDate('created_at', $today)->get();//当日のデータが有ると、Collectionという型で取得され$create_dayに代入
-
+        
         return view('guest.mental.list', ['posts' => $posts, 'cond_weather' => $cond_weather, 'create_day' => $create_day]);
     }
 
