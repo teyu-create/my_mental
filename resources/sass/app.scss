@@ -98,3 +98,31 @@
 .form-group2 {
   text-align: right;
 }
+
+.btn-success {
+  background: #FFA9A1; //ボタンの背景色
+  color: #FEFFB4; //ボタンのテキストの色
+  --bs-btn-bg: none;
+  --bs-btn-border-color: none;
+  --bs-btn-hover-bg:none;
+  --bs-btn-hover-border-color: none;
+  --bs-btn-active-bg: none;
+  --bs-btn-active-border-color: none;
+  --bs-btn-disabled-bg: none;
+  --bs-btn-disabled-border-color: none;
+  
+}
+
+.btn-success:hover, .btn-success:focus, 
+.btn-success:active, .btn-success:active:focus, .btn-success:active:hover, .btn-success:active.focus,
+.btn-success.active, .btn-success.active:focus, .btn-success.active:hover, .btn-success.active.focus,
+.open > .dropdown-toggle.btn-success, 
+.open > .dropdown-toggle.btn-success:hover,
+.open > .dropdown-toggle.btn-success:focus, 
+.open > .dropdown-toggle.btn-success.focus,
+.btn-success.disabled:hover, .btn-success[disabled]:hover, fieldset[disabled] .btn-success:hover,
+.btn-success.disabled:focus, .btn-success[disabled]:focus, fieldset[disabled] .btn-success:focus,
+.btn-success.disabled.focus, .btn-success[disabled].focus, fieldset[disabled] .btn-success.focus {
+    background:#ff8e84; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color:#FEFFB4; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+}
