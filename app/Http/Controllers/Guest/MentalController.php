@@ -27,24 +27,14 @@ class MentalController extends Controller
         $mental = new Mental;
         $form = $request->all();
 
-        /*フォームから画像が送信されてきたら、保存して、$mental->image_path に画像のパスを保存する
-        if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $mental->image_path = basename($path);
-        } else {
-            $mental->image_path = null;
-        }*/
-
-        // $form['eat'] 配列を文字列に変換して $mental->eat に代入する
-        //$mental->eat = implode(",", $form['eat']);
+        /* $form['eat'] 配列を文字列に変換して $mental->eat に代入する
+        $mental->eat = implode(",", $form['eat']);*/
 
         // フォームから送信されてきた_tokenを削除する
         unset($form['_token']);
-        /*フォームから送信されてきたimageを削除する
-        unset($form['image']);*/
 
-        // $form['eat'] で上書きされないように、unsetで消す(でないと文字列にしたものが配列に上書きされてしまう)
-        //unset($form['eat']);
+        /*$form['eat'] で上書きされないように、unsetで消す(でないと文字列にしたものが配列に上書きされてしまう)
+        //unset($form['eat']);*/
 
         // データベースに保存する
         $mental->fill($form);
@@ -55,20 +45,10 @@ class MentalController extends Controller
 
     public function index(Request $request)
     {        
-        /*$cond_weather = $request->cond_weather;
-        if ($cond_weather != null) {
-            // 検索されたら検索結果を取得する
-            $posts = Mental::where('mental_weather', $cond_weather)->get();
-        } else {
-            // それ以外はすべてのメンタル記録を取得する
-            $posts = Mental::all();
-        }*/
-
         $cond_weather = $request->cond_weather;
 
         if ($cond_weather != null) {
             // 押した天気マークのメンタル記録を取得する
-            //$posts = Mental::where('mental_weather', $cond_weather)->get();
             $posts = Mental::where('mental_weather', $cond_weather)->paginate(7);
         } else {
             // それ以外はすべてのメンタル記録を取得する
