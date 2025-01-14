@@ -3,6 +3,7 @@
 
 @section('content')
    <div class="container">
+     <h2>{{ Str::limit($mental_form->created_at,10,"") }}の気分</h2>
         <form action="{{ route('mental.update') }}" method="post" enctype="multipart/form-data">
             @if (count($errors) > 0)
                 <ul>

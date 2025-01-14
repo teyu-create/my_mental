@@ -40,7 +40,7 @@ class MentalController extends Controller
         $mental->fill($form);
         $mental->save();
         // 追記ここまで
-        return redirect()->route('mental.create');
+        return redirect()->route('mental.list.index');
     }
 
     public function index(Request $request)
