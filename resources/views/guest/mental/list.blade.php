@@ -8,27 +8,25 @@
 @section('content')
   <div class="container pt-3 pb-4">
     <div class="row">
-      <div class="col-6 p-0">
-        @if($create_day->isEmpty()) <!--isEmptyでCollection型の変数が空か判断。当日の記録データの有無を判定し、記録を1日1回に制限-->
-            <a href="{{ route('mental.add') }}" role="button" class="btn btn-primary">今日の記録をする</a>
-        @else
-            <button type="button" class="btn btn-primary" disabled>本日は記録済み</button>
-        @endif
-      </div>
-      <div class="form-group2 col-6 p-0">
-          <form action="{{ route('mental.list.index') }}" method="get">
-            @csrf
-                <input type="submit" class="mental-weather-index" id="index-sunny" name="cond_weather" value="晴れ">
-                <input type="submit" class="mental-weather-index" id="index-cloudy" name="cond_weather" value="くもり">
-                <input type="submit" class="mental-weather-index" id="index-rainy" name="cond_weather" value="雨">
-            <p style="margin-bottom: 0px">
-                <label for="index-sunny"><img src="{{ asset('image/晴れちゃん.png') }}" alt="晴れ" style="width: 30px;"></label>
-                <label for="index-cloudy"><img src="{{ asset('image/くもりちゃん.png') }}" alt="くもり" style="width: 30px;"></label>
-                <label for="index-rainy"><img src="{{ asset('image/雨ちゃん.png') }}" alt="雨" style="width: 30px;"></label>
-            </p>
-          </form>
-      </div>
-    </div>
+        <div class="col-6 p-0">
+          @if($create_day->isEmpty()) <!--isEmptyでCollection型の変数が空か判断。当日の記録データの有無を判定し、記録を1日1回に制限-->
+              <a href="{{ route('mental.add') }}" role="button" class="btn btn-primary rounded-pill">今日の記録をする</a>
+          @else
+              <button type="button" class="btn btn-primary rounded-pill" disabled>本日は記録済み</button>
+          @endif
+        </div>
+        <div class="col-6 p-0">
+            <form action="{{ route('mental.list.index') }}" method="get" style="height: 0px">
+              @csrf
+                  <input type="submit" class="mental-weather-index" id="index-sunny" name="cond_weather" value="晴れ">
+                  <input type="submit" class="mental-weather-index" id="index-cloudy" name="cond_weather" value="くもり">
+                  <input type="submit" class="mental-weather-index" id="index-rainy" name="cond_weather" value="雨">
+            </form>
+            <label class="mental-weather-index-button" for="index-sunny"><img src="{{ asset('image/sunny_button.png') }}" alt="晴れ" style="width: 45px"></label>
+            <label class="mental-weather-index-button" for="index-cloudy"><img src="{{ asset('image/cloudy_button.png') }}" alt="くもり" style="width: 45px"></label>
+            <label class="mental-weather-index-button" for="index-rainy"><img src="{{ asset('image/rainy_button.png') }}" alt="雨" style="width: 45px"></label>
+        </div>
+     </div>
   </div>
   <div class="container" style="padding-top: 0px;">
         <div class="row">
@@ -50,11 +48,11 @@
                                 <tr>
                                     <td class="mental-table-body border-bottom-0">{{ Str::limit($mental->created_at,10,"") }}</td>
                                     @if (false !== strpos("晴れ",$mental->mental_weather))
-                                      <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/晴れちゃん.png') }}" style="width: 42px;"></td>
+                                      <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/sunny-chan.png') }}" style="width: 42px;"></td>
                                      @elseif(false !== strpos("くもり",$mental->mental_weather))
-                                      <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/くもりちゃん.png') }}" style="width: 42px;"></td>
+                                      <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/cloudy-chan.png') }}" style="width: 42px;"></td>
                                      @else
-                                      <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/雨ちゃん.png') }}" style="width: 42px;"></td>
+                                      <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/rainy-chan.png') }}" style="width: 42px;"></td>
                                     @endif
                                     <!--<td>{{ $mental->sleep_time }}</td>
                                     <td>{{ $mental->up_time }}</td>-->
@@ -67,7 +65,7 @@
                                 </tr>
                                 <tr>
                                      <td colspan="5" align="right" class="pt-0">
-                                         <a href="{{ route('mental.edit', ['id' => $mental->id]) }}" role="button" class="btn btn-primary btn-sm">編集/詳細</a>
+                                         <a href="{{ route('mental.edit', ['id' => $mental->id]) }}" role="button" class="btn btn-primary btn-sm rounded-pill">編集/詳細</a>
                                      </td>
                                 </tr>
                                     <!--<td>{{ Str::limit($mental->diary, 250,"…") }}</td>-->

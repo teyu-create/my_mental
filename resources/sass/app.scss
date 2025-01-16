@@ -90,13 +90,13 @@
 
 .mental-weather-index {
   font-size: 0;
-  width: 0%;
-  padding-left: 20px;
+  margin-right: 24px;
+  margin-left: 15px;
   opacity: 0; /*ボタンの透明化*/
 }
 
-.form-group2 {
-  text-align: right;
+.mental-weather-index-button {
+  padding-right: 10px;
 }
 
 .btn-success {
@@ -126,3 +126,31 @@
     background:#ff8e84; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     color:#FEFFB4; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
 }
+
+.btn-primary {
+    background: #88604e; //ボタンの背景色
+    color: #FEFFB4; //ボタンのテキストの色
+    --bs-btn-bg: none;
+    --bs-btn-border-color: none;
+    --bs-btn-hover-bg:none;
+    --bs-btn-hover-border-color: none;
+    --bs-btn-active-bg: none;
+    --bs-btn-active-border-color: none;
+    --bs-btn-disabled-bg: none;
+    --bs-btn-disabled-border-color: none;
+    
+  }
+  
+  .btn-primary:hover, .btn-primary:focus, 
+  .btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+  .btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+  .open > .dropdown-toggle.btn-primary, 
+  .open > .dropdown-toggle.btn-primary:hover,
+  .open > .dropdown-toggle.btn-primary:focus, 
+  .open > .dropdown-toggle.btn-primary.focus,
+  .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+  .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+  .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+      background:#5e3d2d; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+      color:#FEFFB4; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+  }

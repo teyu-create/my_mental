@@ -13,9 +13,9 @@
                 </ul>
             @endif
                  <div class="d-flex justify-content-between">
-                     <label for="sunny"><img src="{{ asset('image/晴れちゃん.png') }}"></label>
-                     <label for="cloudy"><img src="{{ asset('image/くもりちゃん.png') }}"></label>
-                     <label for="rainy"><img src="{{ asset('image/雨ちゃん.png') }}"></label>
+                     <label for="sunny"><img src="{{ asset('image/sunny-chan.png') }}"></label>
+                     <label for="cloudy"><img src="{{ asset('image/cloudy-chan.png') }}"></label>
+                     <label for="rainy"><img src="{{ asset('image/rainy-chan.png') }}"></label>
                  </div>
                  <div class="d-flex justify-content-between"style="padding-bottom: 30px;">
                      <div class="form-check form-check-inline">
@@ -107,7 +107,7 @@
                 </div> 
             <input type="hidden" name="id" value="{{ $mental_form->id }}">
             @csrf    
-            <input type="submit" class="btn btn-primary" value="更新">
+            <div class="d-flex justify-content-end"><input type="submit" class="btn btn-primary rounded-pill" value="更新"></div>
         </form>
    </div>
 @endsection
