@@ -12,7 +12,7 @@
           @if($create_day->isEmpty()) <!--isEmptyでCollection型の変数が空か判断。当日の記録データの有無を判定し、記録を1日1回に制限-->
               <a href="{{ route('mental.add') }}" role="button" class="btn btn-primary rounded-pill">今日の記録をする</a>
           @else
-              <button type="button" class="btn btn-primary rounded-pill" disabled>本日は記録済み</button>
+              <button type="button" class="btn btn-primary rounded-pill" disabled>今日は記録済み</button>
           @endif
         </div>
         <div class="col-6 p-0">

@@ -30,14 +30,14 @@
         <div class="wrapper">
 
             <div id="app">
-                {{-- 画面上部に表示するナビゲーションバーです。 --}}
-                <nav class="navbar bg-body-tertiary">
+                {{-- ヘッダー --}}
+                <header class="bg-body-tertiary">
                   <div class="container">
-                            {{-- 以下を追記 --}}
-                            <!-- Authentication Links -->
+                            <!-- 以下を追記 
+                              {{-- Authentication Links --}} 
                             {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
                             @guest
-                                <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a> -->
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
                                 {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                               @else
                                 <li class="nav-item dropdown">
@@ -55,13 +55,13 @@
                                     </div>
                                 </li>
                             @endguest
-                            {{-- 以上までを追記 --}}
-                      <a class="navbar-brand" href="{{ url('mental_list') }}">
-                         <img alt="まいにちのメンタルロゴ" width=100% src="{{ asset('image/まいにちのメンタル.png') }}">
+                            以上までを追記 -->
+                      <a href="{{ url('mental_list') }}">
+                         <img alt="サイトロゴ" width=100% src="{{ asset('image/every-mental.png') }}">
                       </a>
                   </div>
-                </nav>                
-                {{-- ここまでナビゲーションバー --}}
+                </header>                
+                {{-- ここまでヘッダー --}}
                 <main>
                     {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                     @yield('content')
@@ -70,6 +70,15 @@
         </div>
     </body>
     <footer class="footer">
-      <h5>フッター</h5>
+        @guest
+        <!--未ログインの場合の処理はこの行に記述-->
+        @else {{-- ログインしていたらログアウトボタンを表示 --}}
+        <a class="btn btn-outline-light rounded-pill" href="{{ route('logout') }}" role="button" style="border-width:2.5px;font-weight:bold"
+        onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
+        
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+        @endguest
     </footer>
 </html>

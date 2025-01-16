@@ -136,8 +136,9 @@
     --bs-btn-hover-border-color: none;
     --bs-btn-active-bg: none;
     --bs-btn-active-border-color: none;
-    --bs-btn-disabled-bg: none;
+    --bs-btn-disabled-bg: #88604e;
     --bs-btn-disabled-border-color: none;
+    --bs-btn-disabled-color: #FEFFB4;
     
   }
   
@@ -154,3 +155,20 @@
       background:#5e3d2d; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
       color:#FEFFB4; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
   }
+
+  .btn-outline-light {
+    --bs-btn-color: #f8f9fa;
+    --bs-btn-border-color: #f8f9fa;
+    --bs-btn-hover-color: #FFA9A1;
+    --bs-btn-hover-bg: #f8f9fa;
+    --bs-btn-hover-border-color: #f8f9fa;
+    --bs-btn-focus-shadow-rgb: 248, 249, 250;
+    --bs-btn-active-color: #FFA9A1;
+    --bs-btn-active-bg: #f8f9fa;
+    --bs-btn-active-border-color: #f8f9fa;
+    --bs-btn-active-shadow: inset 0 3px 5px #FFA9A1;
+    --bs-btn-disabled-color: #f8f9fa;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #f8f9fa;
+    --bs-gradient: none;
+}
