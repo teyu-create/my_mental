@@ -71,14 +71,14 @@
     </body>
     <footer class="footer">
         @guest
-        <!--未ログインの場合の処理はこの行に記述-->
-        @else {{-- ログインしていたらログアウトボタンを表示 --}}
-        <a class="btn btn-outline-light rounded-pill" href="{{ route('logout') }}" role="button" style="border-width:2.5px;font-weight:bold"
-        onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
-        
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
+            <!--未ログインの場合の処理はこの行に記述-->
+         @else {{-- ログインしていたらログアウトボタンを表示 --}}
+          <a class="btn btn-outline-light rounded-pill" href="{{ route('logout') }}" role="button" style="border-width:2.5px;font-weight:bold"
+          onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
+            
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+             @csrf
+          </form>
         @endguest
     </footer>
 </html>
