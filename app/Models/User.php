@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function mental()
 {
-    return $this->hasMany('App\Models\Mental');
+    return $this->hasMany('App\Mental');
 }
 }
