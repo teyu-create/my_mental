@@ -21,4 +21,10 @@ class Mental extends Model
     protected $casts = [
         'eat' => 'array',
     ];
+
+    public function user(){
+
+    return $this->belongsTo('App\Models\User');
+
+  }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;//redirectToメソッドを有効にするため追記
+
 
 class LoginController extends Controller
 {
@@ -25,7 +27,10 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/mental_list';
+   //protected $redirectTo = '/';
+     protected function redirectTo() {
+        return route('mental.list.index', ['user' => Auth::id()]);
+     } 
 
     /**
      * Create a new controller instance.

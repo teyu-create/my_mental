@@ -56,7 +56,7 @@
                                 </li>
                             @endguest
                             以上までを追記 -->
-                      <a href="{{ url('mental_list') }}">
+                      <a href="{{ url('/') }}">
                          <img alt="サイトロゴ" width=100% src="{{ asset('image/every-mental.png') }}">
                       </a>
                   </div>
