@@ -36,8 +36,6 @@ class MentalController extends Controller
         /*$form['eat'] で上書きされないように、unsetで消す(でないと文字列にしたものが配列に上書きされてしまう)
         //unset($form['eat']);*/
 
-        $mental->user_id = $request->user()->id;
-
         // データベースに保存する
         $mental->fill($form);
         $mental->save();
@@ -47,6 +45,7 @@ class MentalController extends Controller
 
     public function index(Request $request)
     {        
+
         $cond_weather = $request->cond_weather;
 
         if ($cond_weather != null) {

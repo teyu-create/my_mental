@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mental extends Model
 {
     use HasFactory;
+        
     // 以下を追記
     protected $guarded = array('id');
 
@@ -16,15 +17,16 @@ class Mental extends Model
         'up_time' => 'required',
         'diary' => 'required',
     );
-
+       
      // カラムのデータを配列（array）へ型の変換($casts)
     protected $casts = [
         'eat' => 'array',
     ];
-
+    
     public function user(){
 
-    return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
+    
+      }
 
-  }
 }
