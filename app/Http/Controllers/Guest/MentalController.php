@@ -46,6 +46,8 @@ class MentalController extends Controller
     public function index(Request $request)
     {        
 
+        $mental = Auth::user()->mental()->get();
+
         $cond_weather = $request->cond_weather;
 
         if ($cond_weather != null) {
@@ -61,7 +63,7 @@ class MentalController extends Controller
         $today = Carbon::today();
         $create_day = Mental::whereDate('created_at', $today)->get();//当日のデータが有ると、Collectionという型で取得され$create_dayに代入
         
-        return view('guest.mental.list', ['posts' => $posts, 'cond_weather' => $cond_weather, 'create_day' => $create_day]);
+        return view('guest.mental.list', ['posts' => $posts, 'cond_weather' => $cond_weather, 'create_day' => $create_day, 'mental' => $mental]);
     }
 
     public function edit(Request $request)
