@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 // 以下の1行を追記することで、Mental Modelが扱えるようになる
 use App\Models\Mental;
 
+use Illuminate\Support\Facades\Auth;
+
 use Carbon\Carbon;
 
 class MentalController extends Controller
@@ -34,9 +36,10 @@ class MentalController extends Controller
         unset($form['_token']);
 
         /*$form['eat'] で上書きされないように、unsetで消す(でないと文字列にしたものが配列に上書きされてしまう)
-        //unset($form['eat']);*/
+        unset($form['eat']);*/
 
         // データベースに保存する
+        $mental->user_id = $request->user()->id;
         $mental->fill($form);
         $mental->save();
         // 追記ここまで
@@ -45,8 +48,8 @@ class MentalController extends Controller
 
     public function index(Request $request)
     {        
-
-        $mental = Auth::user()->mental()->get();
+        //$mental = Auth::user()->mentals()->get();
+        $mental = Mental::where('user_id', Auth::id())->get();
 
         $cond_weather = $request->cond_weather;
 
@@ -74,7 +77,7 @@ class MentalController extends Controller
             abort(404);
         }
         
-        return view('guest.mental.edit', ['mental_form' => $mental]);
+        return view('guest.mental.edit', ['mental_form' => $mental]);//bladeでeditアクションの$mentalを表す表示が'mental_form'という意味（blade内では「$」を頭に付ける）
     }
 
     public function update(Request $request)
