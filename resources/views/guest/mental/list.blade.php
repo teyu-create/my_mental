@@ -9,11 +9,11 @@
   <div class="container pt-3 pb-4">
     <div class="row">
         <div class="col-6 p-0">
-          @if($create_day->isEmpty()) <!--isEmptyでCollection型の変数が空か判断。当日の記録データの有無を判定し、記録を1日1回に制限-->
+         {{--@if($create_day->isEmpty())<!--isEmptyでCollection型の変数が空か判断。当日の記録データの有無を判定し、記録を1日1回に制限-->--}}
               <a href="{{ route('mental.add') }}" role="button" class="btn btn-primary rounded-pill">今日の記録をする</a>
           @else
               <button type="button" class="btn btn-primary rounded-pill" disabled>今日は記録済み</button>
-          @endif
+          @endif 
         </div>
         <div class="col-6 p-0">
             <form action="{{ route('mental.list.index') }}" method="get" style="height: 0px">
@@ -44,38 +44,38 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $mental)
+                            @foreach($mentals as $mental_date)
                                 <tr>
-                                    <td class="mental-table-body border-bottom-0">{{ Str::limit($mental->created_at,10,"") }}</td>
-                                    @if (false !== strpos("晴れ",$mental->mental_weather))
+                                    <td class="mental-table-body border-bottom-0">{{ Str::limit($mental_date->created_at,10,"") }}</td>
+                                    @if (false !== strpos("晴れ",$mental_date->mental_weather))
                                       <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/sunny-chan.png') }}" style="width: 42px;"></td>
-                                     @elseif(false !== strpos("くもり",$mental->mental_weather))
+                                     @elseif(false !== strpos("くもり",$mental_date->mental_weather))
                                       <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/cloudy-chan.png') }}" style="width: 42px;"></td>
                                      @else
                                       <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/rainy-chan.png') }}" style="width: 42px;"></td>
                                     @endif
-                                    <!--<td>{{ $mental->sleep_time }}</td>
-                                    <td>{{ $mental->up_time }}</td>-->
-                                    @if (!is_array($mental->eat)){{--もしeatが配列じゃなかったら、中身をそのまま表示--}}
-                                    <td class="mental-table-body border-bottom-0">{{ $mental->eat }}</td>
+                                    <!--<td>{{ $mental_date->sleep_time }}</td>
+                                    <td>{{ $mental_date->up_time }}</td>-->
+                                    @if (!is_array($mental_date->eat)){{--もしeatが配列じゃなかったら、中身をそのまま表示--}}
+                                    <td class="mental-table-body border-bottom-0">{{ $mental_date->eat }}</td>
                                     @else
-                                    <td class="mental-table-body border-bottom-0">{{ implode(",", $mental->eat) }}</td>{{--配列の場合、中身を","で区切って文字列として表示--}}
+                                    <td class="mental-table-body border-bottom-0">{{ implode(",", $mental_date->eat) }}</td>{{--配列の場合、中身を","で区切って文字列として表示--}}
                                     @endif
-                                    <td class="mental-table-body border-bottom-0 pt-0 pb-0">{{ $mental->go_or_home }}</td>
+                                    <td class="mental-table-body border-bottom-0 pt-0 pb-0">{{ $mental_date->go_or_home }}</td>
                                 </tr>
                                 <tr>
                                      <td colspan="5" align="right" class="pt-0">
-                                         <a href="{{ route('mental.edit', ['id' => $mental->id]) }}" role="button" class="btn btn-primary btn-sm rounded-pill">編集/詳細</a>
+                                         <a href="{{ route('mental.edit', ['id' => $mental_date->id]) }}" role="button" class="btn btn-primary btn-sm rounded-pill">編集/詳細</a>
                                      </td>
                                 </tr>
-                                    <!--<td>{{ Str::limit($mental->diary, 250,"…") }}</td>-->
+                                    <!--<td>{{ Str::limit($mental_date->diary, 250,"…") }}</td>-->
                             @endforeach
                         </tbody>
                     </table>
         </div>
         <!--ページネーションリンク-->
         <div class="d-flex justify-content-center" style="padding-top: 50px;">
-          {{ $posts->links() }}
+          {{--{{ $posts->links() }}--}}
         </div>
   </div>
 @endsection

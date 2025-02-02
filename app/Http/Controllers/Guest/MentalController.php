@@ -22,7 +22,7 @@ class MentalController extends Controller
     public function create(Request $request)
     {
 
-        // 以下を追記
+        // 以下を追記]
         // Validationを行う
         $this->validate($request, Mental::$rules);
 
@@ -48,25 +48,26 @@ class MentalController extends Controller
 
     public function index(Request $request)
     {        
-        //$mental = Auth::user()->mentals()->get();
-        $mental = Mental::where('user_id', Auth::id())->get();
+        $mentals = Mental::where('user_id', Auth::id())->get(); //ログインユーザーの記録が$mentalsに代入
 
         $cond_weather = $request->cond_weather;
 
-        if ($cond_weather != null) {
+       /* if ($cond_weather != null) {
             // 押した天気マークのメンタル記録を取得する
             $posts = Mental::where('mental_weather', $cond_weather)->paginate(7);
         } else {
-            // それ以外はすべてのメンタル記録を取得する
-            $posts = Mental::paginate(7);
-        }
+            // それ以外はすべて(全ユーザー)のメンタル記録を取得する
+            //$posts = Mental::paginate(7);
+            $posts = Mental::where('user_id', Auth::id())->paginate(7);
+        }*/
+
         //dd($cond_weather);
         
         //記録ボタンが1日1回だけ押せるよう、whereDateで当日既に記録したデータがあれば取得
         $today = Carbon::today();
         $create_day = Mental::whereDate('created_at', $today)->get();//当日のデータが有ると、Collectionという型で取得され$create_dayに代入
-        
-        return view('guest.mental.list', ['posts' => $posts, 'cond_weather' => $cond_weather, 'create_day' => $create_day, 'mental' => $mental]);
+
+        return view('guest.mental.list', [/*'posts' => $posts,*/'cond_weather' => $cond_weather, 'create_day' => $create_day, 'mentals' => $mentals]);
     }
 
     public function edit(Request $request)
