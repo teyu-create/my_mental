@@ -49,20 +49,20 @@ class MentalController extends Controller
     public function index(Request $request)
     {        
         //$mentals = Mental::where('user_id', Auth::id())->get(); //ログインユーザーの記録が$mentalsに代入(例1)
-        $mentals = $request->user()->mentals; //ログインユーザーの記録が$mentalsに代入(例2)
+        //$mentals = $request->user()->mentals; //ログインユーザーの記録が$mentalsに代入(例2)
 
         $cond_weather = $request->cond_weather;
 
-       /* if ($cond_weather != null) {
+        if ($cond_weather != null) {
             // 押した天気マークのメンタル記録を取得する
-            $posts = Mental::where('mental_weather', $cond_weather)->paginate(7);
+            $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->paginate(7);
         } else {
-            // それ以外はすべて(全ユーザー)のメンタル記録を取得するという意味になってしまっている
-            //$posts = Mental::paginate(7);
-            $posts = Mental::where('user_id', Auth::id())->paginate(7);
-        }*/
+            //$mentals = Mental::paginate(7); 　//←すべて(全ユーザー)のメンタル記録を取得するという意味になってしまっている
+            $mentals = Mental::where('user_id', Auth::id())->paginate(7);
+        }
 
         //dd($cond_weather);
+        //dd($posts);
         
         //記録ボタンが1日1回だけ押せるよう、whereで'user_id'カラムとログインユーザーのidが合致＋whereDateで当日記録したデータがあるか判断し、有る場合は$create_dayに代入
         $today = Carbon::today();
@@ -73,16 +73,20 @@ class MentalController extends Controller
 
         
 
-        return view('guest.mental.list', [/*'posts' => $posts,*/'cond_weather' => $cond_weather,'create_day' => $create_day,'mentals' => $mentals]);
+        return view('guest.mental.list', ['create_day' => $create_day,'mentals' => $mentals]);
     }
 
     public function edit(Request $request)
     {
-        // Mental Modelからデータを取得する
+        // Mental Modelからログインユーザーのデータを取得する
         $mental = Mental::where('user_id', Auth::id())->where('id', $request->id)->first();
         // $mental = Mental::find($request->id);  //←だと別ユーザーが編集できてしまう
-        if (empty($mental)) {
-            abort(404);
+        
+        if (empty($mental)) { //$mentalが空だったらエラー画面
+
+            //abort(404); //←404エラー画面になる
+            return view('guest.mental.error');
+
         }
         
         return view('guest.mental.edit', ['mental_form' => $mental]);//bladeでeditアクションの$mentalを表す表示が'mental_form'という意味（blade内では「$」を頭に付ける）
@@ -92,8 +96,8 @@ class MentalController extends Controller
     {
        // Validationをかける
        $this->validate($request, Mental::$rules);
-       
-       // Mental Modelからデータを取得する
+
+       // Mental Modelからログインユーザーのデータを取得する
        $mental = Mental::where('user_id', Auth::id())->where('id', $request->id)->first();
        // $mental = Mental::find($request->id); //←だと別ユーザーが更新できてしまう
 

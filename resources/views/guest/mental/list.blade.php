@@ -75,7 +75,7 @@
         </div>
         <!--ページネーションリンク-->
         <div class="d-flex justify-content-center" style="padding-top: 50px;">
-          {{--{{ $posts->links() }}--}}
+          {{ $mentals->appends(request()->query())->links() }}
         </div>
   </div>
 @endsection
