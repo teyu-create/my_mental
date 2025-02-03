@@ -64,10 +64,12 @@ class MentalController extends Controller
 
         //dd($cond_weather);
         
-        //記録ボタンが1日1回だけ押せるよう、whereDateで当日既に記録したデータがあれば取得
+        //記録ボタンが1日1回だけ押せるよう、whereで'user_id'カラムとログインユーザーのidが合致＋whereDateで当日記録したデータがあるか判断し、有る場合は$create_dayに代入
         $today = Carbon::today();
-        //↓ユーザーごとのデータからその日のデータがないか判別させたい
-        $create_day = Mental::whereDate('created_at', $today)->get();//当日のデータが有ると、Collectionという型で取得され$create_dayに代入
+
+        // $user = Auth::user();
+        // $user_id = $user->id;　//70,71行を有効にした場合、where('user_id',$user_id)とする
+        $create_day = Mental::where('user_id', Auth::id())->whereDate('created_at', $today)->get();//ログインユーザーの当日データが有ると、Collectionという型で取得され$create_dayに代入
 
         
 
@@ -77,7 +79,8 @@ class MentalController extends Controller
     public function edit(Request $request)
     {
         // Mental Modelからデータを取得する
-        $mental = Mental::find($request->id);
+        $mental = Mental::where('user_id', Auth::id())->where('id', $request->id)->first();
+        // $mental = Mental::find($request->id);  //←だと別ユーザーが編集できてしまう
         if (empty($mental)) {
             abort(404);
         }
@@ -89,8 +92,11 @@ class MentalController extends Controller
     {
        // Validationをかける
        $this->validate($request, Mental::$rules);
+       
        // Mental Modelからデータを取得する
-       $mental = Mental::find($request->id);
+       $mental = Mental::where('user_id', Auth::id())->where('id', $request->id)->first();
+       // $mental = Mental::find($request->id); //←だと別ユーザーが更新できてしまう
+
        // 送信されてきたフォームデータを格納する
        $mental_form = $request->all();
       
