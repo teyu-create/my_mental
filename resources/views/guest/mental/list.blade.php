@@ -75,7 +75,7 @@
         </div>
         <!--ページネーションリンク-->
         <div class="d-flex justify-content-center" style="padding-top: 50px;">
-          {{ $mentals->appends(request()->query())->links() }}
+          {{ $mentals->appends(request()->query())->links() }}<!--appends(request()->query())とすることで天気マークで絞込み後もページネーションが有効になる-->
         </div>
   </div>
 @endsection
