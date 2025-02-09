@@ -17,7 +17,6 @@
         </div>
         <div class="col-6 p-0">
             <form action="{{ route('mental.list.index') }}" method="get" style="height: 0px">
-              @csrf
                   <input type="submit" class="mental-weather-index" id="index-sunny" name="cond_weather" value="晴れ">
                   <input type="submit" class="mental-weather-index" id="index-cloudy" name="cond_weather" value="くもり">
                   <input type="submit" class="mental-weather-index" id="index-rainy" name="cond_weather" value="雨">
