@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,5 +22,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        DB::table('users')->insert([
+            'id' => 16,
+            'name' => '',
+            'email' => 'test@test.com',
+            'password' => Hash::make('test1111'),
+        ]);
+
+        $this->call([
+            MentalSeeder::class
+        ]);
     }
 }
