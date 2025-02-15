@@ -55,14 +55,14 @@ class MentalController extends Controller
 
         if ($cond_weather != null) {
             // 押した天気マークのメンタル記録を取得する
-            $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->paginate(7);
+            $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->orderByDesc('created_at')->paginate(7);//orderByDescで絞込み後のデータを降順（新しい順）に。
         } else {
             //$mentals = Mental::paginate(7); 　//←すべて(全ユーザー)のメンタル記録を取得するという意味になってしまっている
-            $mentals = Mental::where('user_id', Auth::id())->paginate(7);
+            $mentals = Mental::where('user_id', Auth::id())->orderByDesc('created_at')->paginate(7);
         }
-
+        
         //dd($cond_weather);
-        //dd($posts);
+        //dd($mentals);
         
         //記録ボタンが1日1回だけ押せるよう、whereで'user_id'カラムとログインユーザーのidが合致＋whereDateで当日記録したデータがあるか判断し、有る場合は$create_dayに代入
         $today = Carbon::today();
