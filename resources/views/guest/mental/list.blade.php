@@ -7,25 +7,39 @@
 {{-- guest.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
   <div class="container pt-3 pb-4">
-    <div class="row">
-        <div class="col-6 p-0">
-          @if($create_day->isEmpty())<!--isEmptyでCollection型の変数が空か判断。当日の記録データの有無を判定し、記録を1日1回に制限-->
-              <a href="{{ route('mental.add') }}" role="button" class="btn btn-primary rounded-pill">今日の記録をする</a>
-          @else
-              <button type="button" class="btn btn-primary rounded-pill" disabled>今日は記録済み</button>
-          @endif 
+        <div class="row">
+            <div class="col-6 p-0">
+            @if($create_day->isEmpty())<!--isEmptyでCollection型の変数が空か判断。当日の記録データの有無を判定し、記録を1日1回に制限-->
+                <a href="{{ route('mental.add') }}" role="button" class="btn btn-primary rounded-pill">今日の記録をする</a>
+            @else
+                <button type="button" class="btn btn-primary rounded-pill" disabled>今日は記録済み</button>
+            @endif 
+            </div>
+            <div class="col-6 p-0">
+                <form action="{{ route('mental.list.index') }}" method="get" style="height: 0px">
+                    <input type="submit" class="mental-weather-index" id="index-sunny" name="cond_weather" value="晴れ">
+                    <input type="submit" class="mental-weather-index" id="index-cloudy" name="cond_weather" value="くもり">
+                    <input type="submit" class="mental-weather-index" id="index-rainy" name="cond_weather" value="雨">
+                </form>
+              @if($cond_weather == "晴れ")
+                <label class="mental-weather-index-button" for="index-sunny"><img src="{{ asset('image/sel-sunny-chan.png') }}" alt="晴れ選択" style="width: 45px"></label>
+                <label class="mental-weather-index-button" for="index-cloudy"><img src="{{ asset('image/cloudy_button.png') }}" alt="くもり" style="width: 45px"></label>
+                <label class="mental-weather-index-button" for="index-rainy"><img src="{{ asset('image/rainy_button.png') }}" alt="雨" style="width: 45px"></label>
+              @elseif($cond_weather == "くもり") 
+                <label class="mental-weather-index-button" for="index-sunny"><img src="{{ asset('image/sunny_button.png') }}" alt="晴れ" style="width: 45px"></label>
+                <label class="mental-weather-index-button" for="index-cloudy"><img src="{{ asset('image/sel-cloudy-chan.png') }}" alt="くもり選択" style="width: 45px"></label>
+                <label class="mental-weather-index-button" for="index-rainy"><img src="{{ asset('image/rainy_button.png') }}" alt="雨" style="width: 45px"></label>
+              @elseif($cond_weather == "雨")
+                <label class="mental-weather-index-button" for="index-sunny"><img src="{{ asset('image/sunny_button.png') }}" alt="晴れ" style="width: 45px"></label>
+                <label class="mental-weather-index-button" for="index-cloudy"><img src="{{ asset('image/cloudy_button.png') }}" alt="くもり" style="width: 45px"></label>
+                <label class="mental-weather-index-button" for="index-rainy"><img src="{{ asset('image/sel-rainy-chan.png') }}" alt="雨選択" style="width: 45px"></label>
+              @else
+                <label class="mental-weather-index-button" for="index-sunny"><img src="{{ asset('image/sunny_button.png') }}" alt="晴れ" style="width: 45px"></label>
+                <label class="mental-weather-index-button" for="index-cloudy"><img src="{{ asset('image/cloudy_button.png') }}" alt="くもり" style="width: 45px"></label>
+                <label class="mental-weather-index-button" for="index-rainy"><img src="{{ asset('image/rainy_button.png') }}" alt="雨" style="width: 45px"></label>
+              @endif
+            </div>
         </div>
-        <div class="col-6 p-0">
-            <form action="{{ route('mental.list.index') }}" method="get" style="height: 0px">
-                  <input type="submit" class="mental-weather-index" id="index-sunny" name="cond_weather" value="晴れ">
-                  <input type="submit" class="mental-weather-index" id="index-cloudy" name="cond_weather" value="くもり">
-                  <input type="submit" class="mental-weather-index" id="index-rainy" name="cond_weather" value="雨">
-            </form>
-            <label class="mental-weather-index-button" for="index-sunny"><img src="{{ asset('image/sunny_button.png') }}" alt="晴れ" style="width: 45px"></label>
-            <label class="mental-weather-index-button" for="index-cloudy"><img src="{{ asset('image/cloudy_button.png') }}" alt="くもり" style="width: 45px"></label>
-            <label class="mental-weather-index-button" for="index-rainy"><img src="{{ asset('image/rainy_button.png') }}" alt="雨" style="width: 45px"></label>
-        </div>
-     </div>
   </div>
   <div class="container" style="padding-top: 0px;">
         <div class="row">

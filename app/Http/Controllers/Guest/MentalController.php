@@ -73,7 +73,7 @@ class MentalController extends Controller
 
         
 
-        return view('guest.mental.list', ['create_day' => $create_day,'mentals' => $mentals]);
+        return view('guest.mental.list', ['cond_weather' => $cond_weather,'create_day' => $create_day,'mentals' => $mentals]);
     }
 
     public function edit(Request $request)
