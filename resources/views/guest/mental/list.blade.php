@@ -25,14 +25,17 @@
                 <label class="mental-weather-index-button" for="index-sunny"><img src="{{ asset('image/sel-sunny-chan.png') }}" alt="晴れ選択" style="width: 45px"></label>
                 <label class="mental-weather-index-button" for="index-cloudy"><img src="{{ asset('image/cloudy_button.png') }}" alt="くもり" style="width: 45px"></label>
                 <label class="mental-weather-index-button" for="index-rainy"><img src="{{ asset('image/rainy_button.png') }}" alt="雨" style="width: 45px"></label>
+                <div class="text-center"><a style="font-size: 10px" href="{{ url('/') }}">全表示に戻る☀☁☂</a></div>
               @elseif($cond_weather == "くもり") 
                 <label class="mental-weather-index-button" for="index-sunny"><img src="{{ asset('image/sunny_button.png') }}" alt="晴れ" style="width: 45px"></label>
                 <label class="mental-weather-index-button" for="index-cloudy"><img src="{{ asset('image/sel-cloudy-chan.png') }}" alt="くもり選択" style="width: 45px"></label>
                 <label class="mental-weather-index-button" for="index-rainy"><img src="{{ asset('image/rainy_button.png') }}" alt="雨" style="width: 45px"></label>
+                <div class="text-center"><a style="font-size: 10px" href="{{ url('/') }}">全表示に戻る☀☁☂</a></div>
               @elseif($cond_weather == "雨")
                 <label class="mental-weather-index-button" for="index-sunny"><img src="{{ asset('image/sunny_button.png') }}" alt="晴れ" style="width: 45px"></label>
                 <label class="mental-weather-index-button" for="index-cloudy"><img src="{{ asset('image/cloudy_button.png') }}" alt="くもり" style="width: 45px"></label>
                 <label class="mental-weather-index-button" for="index-rainy"><img src="{{ asset('image/sel-rainy-chan.png') }}" alt="雨選択" style="width: 45px"></label>
+                <div class="text-center"><a style="font-size: 10px" href="{{ url('/') }}">全表示に戻る☀☁☂</a></div>
               @else
                 <label class="mental-weather-index-button" for="index-sunny"><img src="{{ asset('image/sunny_button.png') }}" alt="晴れ" style="width: 45px"></label>
                 <label class="mental-weather-index-button" for="index-cloudy"><img src="{{ asset('image/cloudy_button.png') }}" alt="くもり" style="width: 45px"></label>

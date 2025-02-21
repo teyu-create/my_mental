@@ -105,9 +105,12 @@
                         <textarea class="form-control2" name="diary">{{ $mental_form->diary }}</textarea>
                     </div>
                 </div> 
-            <input type="hidden" name="id" value="{{ $mental_form->id }}">
+            <input type="hidden" name="id" value="{{ $mental_form->id }}">{{--編集したデータを更新するためidを渡す--}}
             @csrf    
-            <div class="d-flex justify-content-end"><input type="submit" class="btn btn-primary rounded-pill" value="更新"></div>
+            <div class="d-flex justify-content-between">
+                <a href="{{ url('/') }}" role="button" class="btn btn-primary rounded-pill">◀︎戻る</a>
+                <input type="submit" class="btn btn-primary rounded-pill" value="更新">
+            </div>
         </form>
    </div>
 @endsection

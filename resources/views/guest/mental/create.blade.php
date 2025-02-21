@@ -111,7 +111,10 @@
               </div>
             </div> 
             @csrf    
-            <div class="d-flex justify-content-end"><input type="submit" class="btn btn-primary rounded-pill" value="登録"></div>
+            <div class="d-flex justify-content-between">
+              <a href="{{ url('/') }}" role="button" class="btn btn-primary rounded-pill">◀︎戻る</a>
+              <input type="submit" class="btn btn-primary rounded-pill" value="登録">
+            </div>
         </form>
    </div>
 @endsection

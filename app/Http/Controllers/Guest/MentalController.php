@@ -80,11 +80,11 @@ class MentalController extends Controller
     {
         // Mental Modelからログインユーザーのデータを取得する
         $mental = Mental::where('user_id', Auth::id())->where('id', $request->id)->first();
-        // $mental = Mental::find($request->id);  //←だと別ユーザーが編集できてしまう
+        // $mental = Mental::find($request->id);  ←だと別ユーザーが編集できてしまう
         
         if (empty($mental)) { //$mentalが空だったらエラー画面
 
-            //abort(404); //←404エラー画面になる
+            //abort(404); ←404画面になる
             return view('guest.mental.error');
 
         }
@@ -99,7 +99,7 @@ class MentalController extends Controller
 
        // Mental Modelからログインユーザーのデータを取得する
        $mental = Mental::where('user_id', Auth::id())->where('id', $request->id)->first();
-       // $mental = Mental::find($request->id); //←だと別ユーザーが更新できてしまう
+       // $mental = Mental::find($request->id); ←だと別ユーザーが更新できてしまう
 
        // 送信されてきたフォームデータを格納する
        $mental_form = $request->all();

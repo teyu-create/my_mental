@@ -12129,3 +12129,17 @@ li.nav-item.dropdown {
   --bs-btn-disabled-border-color: #f8f9fa;
   --bs-gradient: none;
 }
+
+a {
+  color: #88604e;
+  text-decoration: underline;
+}
+
+a:hover {
+  --bs-link-color-rgb: var(--bs-link-hover-color-rgb);
+}
+
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
+}
