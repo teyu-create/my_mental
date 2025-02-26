@@ -185,3 +185,30 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
   text-decoration: none;
 }
+
+.pagination {
+  --bs-pagination-padding-x: 0.75rem;
+  --bs-pagination-padding-y: 0.375rem;
+  --bs-pagination-font-size: 0.9rem;
+  --bs-pagination-color: #88604e;
+  --bs-pagination-bg: none;
+  --bs-pagination-border-width: var(--bs-border-width);
+  --bs-pagination-border-color: #88604e;
+  --bs-pagination-border-radius: var(--bs-border-radius);
+  --bs-pagination-hover-color: #88604e;
+  --bs-pagination-hover-bg: none;
+  --bs-pagination-hover-border-color: #88604e;
+  --bs-pagination-focus-color: #88604e;
+  --bs-pagination-focus-bg: none;
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem #88604eb0;
+  --bs-pagination-active-color: #FEFFB4;
+  --bs-pagination-active-bg: #88604e;
+  --bs-pagination-active-border-color: #88604e;
+  --bs-pagination-disabled-color: #88604e00; /*端までクリックした時の左右ボタンの文字色*/
+  --bs-pagination-disabled-bg: #88604e00; /*端までクリックした時の左右ボタンの背景色*/
+  --bs-pagination-disabled-border-color: #88604e00; /*端までクリックした時の左右ボタンの囲み線の色*/
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+

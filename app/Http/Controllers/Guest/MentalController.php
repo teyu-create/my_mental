@@ -51,7 +51,7 @@ class MentalController extends Controller
         //$mentals = Mental::where('user_id', Auth::id())->get(); //ログインユーザーの記録が$mentalsに代入(例1)
         //$mentals = $request->user()->mentals; //ログインユーザーの記録が$mentalsに代入(例2)
 
-        $cond_weather = $request->cond_weather;
+        $cond_weather = $request->cond_weather;//formタグname属性のcond_weather＝$request->cond_weather
 
         if ($cond_weather != null) {
             // 押した天気マークのメンタル記録を取得する
@@ -90,6 +90,11 @@ class MentalController extends Controller
         }
         
         return view('guest.mental.edit', ['mental_form' => $mental]);//bladeでeditアクションの$mentalを表す表示が'mental_form'という意味（blade内では「$」を頭に付ける）
+    }
+
+    public function back_page()
+    {
+        return back();
     }
 
     public function update(Request $request)

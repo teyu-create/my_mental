@@ -191,7 +191,7 @@ class MentalSeeder extends Seeder
                 'go_or_home' =>'休日',
                 'diary' =>'テスト1',
                 'user_id' => 1,
-                'created_at' =>"2025-01-1"
+                'created_at' =>"2025-01-16"
             ],
             [
                 'id' => 17,

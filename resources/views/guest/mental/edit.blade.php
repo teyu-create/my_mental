@@ -108,7 +108,7 @@
             <input type="hidden" name="id" value="{{ $mental_form->id }}">{{--編集したデータを更新するためidを渡す--}}
             @csrf    
             <div class="d-flex justify-content-between">
-                <a href="{{ url('/') }}" role="button" class="btn btn-primary rounded-pill">◀︎戻る</a>
+                <button class="btn btn-primary rounded-pill" type="button" onClick="history.back()">◀︎戻る</button>
                 <input type="submit" class="btn btn-primary rounded-pill" value="更新">
             </div>
         </form>
