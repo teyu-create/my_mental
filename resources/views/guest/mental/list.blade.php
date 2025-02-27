@@ -14,9 +14,12 @@
             @else
                 <button type="button" class="btn btn-primary rounded-pill" disabled>今日は記録済み</button>
             @endif 
-                {{--<form  action="{{ route('mental.list.index') }}" method="get">--}}
-                  {{--<input type="submit" name="asc_weather" value="古い順にする">--}}
-                {{--</form>--}}
+               <form action="{{ route('mental.list.index') }}" method="get">
+                  <select name="sort">
+                      <option value="newest" {{request('sort') == 'newest' ? 'selected' : ''}}>新しい順</option>
+                      <option value="oldest" {{request('sort') == 'oldest' ? 'selected' : ''}}>古い順</option>
+                  </select> 
+               </form>
             </div>
             <div class="col-6 p-0">
                 <form action="{{ route('mental.list.index') }}" method="get" style="height: 0px">
