@@ -14,6 +14,9 @@
             @else
                 <button type="button" class="btn btn-primary rounded-pill" disabled>今日は記録済み</button>
             @endif 
+                {{--<form  action="{{ route('mental.list.index') }}" method="get">--}}
+                  {{--<input type="submit" name="asc_weather" value="古い順にする">--}}
+                {{--</form>--}}
             </div>
             <div class="col-6 p-0">
                 <form action="{{ route('mental.list.index') }}" method="get" style="height: 0px">
@@ -57,12 +60,8 @@
                             <tr>
                                 <th class="border border-3 border-top-0 border-end-0 border-start-0"></th>
                                 <th class="border border-3 border-top-0 border-end-0 border-start-0">気分</th>
-                                <!--<th width="10%">睡眠時間</th>
-                                <th width="10%">起床時間</th>-->
                                 <th class="border border-3 border-top-0 border-end-0 border-start-0">ごはん</th>
                                 <th class="border border-3 border-top-0 border-end-0 border-start-0">お仕事／学校</th>
-                                <!--<th width="27%"></th>-->
-                                <!--<th width="10%">どんな1日？</th>-->
                             </tr>
                         </thead>
                         <tbody>
@@ -76,8 +75,6 @@
                                      @else
                                       <td class="mental-table-body border-bottom-0"><img src="{{ asset('image/rainy-chan.png') }}" style="width: 42px;"></td>
                                     @endif
-                                    <!--<td>{{ $mental_date->sleep_time }}</td>
-                                    <td>{{ $mental_date->up_time }}</td>-->
                                     @if (!is_array($mental_date->eat)){{--もしeatが配列じゃなかったら、中身をそのまま表示--}}
                                     <td class="mental-table-body border-bottom-0">{{ $mental_date->eat }}</td>
                                     @else
@@ -90,7 +87,6 @@
                                          <a href="{{ route('mental.edit', ['id' => $mental_date->id]) }}" role="button" class="btn btn-primary btn-sm rounded-pill">編集/詳細</a>
                                      </td>
                                 </tr>
-                                    <!--<td>{{ Str::limit($mental_date->diary, 250,"…") }}</td>-->
                             @endforeach
                         </tbody>
                     </table>

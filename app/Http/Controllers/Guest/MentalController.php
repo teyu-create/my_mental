@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 use Carbon\Carbon;
 
+use Illuminate\Support\Collection; //追記
+use Illuminate\Pagination\LengthAwarePaginator; //追記
+
 class MentalController extends Controller
 {
     //
@@ -22,7 +25,6 @@ class MentalController extends Controller
     public function create(Request $request)
     {
 
-        // 以下を追記]
         // Validationを行う
         $this->validate($request, Mental::$rules);
 
@@ -42,7 +44,7 @@ class MentalController extends Controller
         $mental->user_id = $request->user()->id;
         $mental->fill($form);
         $mental->save();
-        // 追記ここまで
+        
         return redirect()->route('mental.list.index');
     }
 
@@ -52,6 +54,7 @@ class MentalController extends Controller
         //$mentals = $request->user()->mentals; //ログインユーザーの記録が$mentalsに代入(例2)
 
         $cond_weather = $request->cond_weather;//formタグname属性のcond_weather＝$request->cond_weather
+        //$asc_weather = $request->asc_weather;
 
         if ($cond_weather != null) {
             // 押した天気マークのメンタル記録を取得する
@@ -60,9 +63,33 @@ class MentalController extends Controller
             //$mentals = Mental::paginate(7); 　//←すべて(全ユーザー)のメンタル記録を取得するという意味になってしまっている
             $mentals = Mental::where('user_id', Auth::id())->orderByDesc('created_at')->paginate(7);
         }
+
+        /*if ($cond_weather != null) { // 押した天気マークの記録を新しい順に７件ずつ取得
+
+            $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->orderByDesc('created_at')->paginate(7);//orderByDescで絞込み後のデータを降順（新しい順）に。
+
+        } 
+        if($cond_weather == null) { // 天気マークを押していない場合は混在した記録を新しい順に取得
+            
+            $mentals = Mental::where('user_id', Auth::id())->orderByDesc('created_at')->paginate(7);
+
+        } 
+        if($asc_weather and $cond_weather != null ) { //　天気マーク＋古い順ボタンを押していたら、天気ごとに日付の古い順に取得
+
+            $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->orderBy('created_at')->paginate(7);//orderByascで絞込み後のデータを昇順（古い順）に。
+
+        } 
+        if($asc_weather != null and $cond_weather == null) { // 古い順ボタンのみ押した場合は混在した記録を古い順に取得
+
+            $mentals = Mental::where('user_id', Auth::id())->orderBy('created_at')->paginate(7);
+
+        }*/
+
+
+
         
-        //dd($cond_weather);
-        //dd($mentals);
+        //dd($asc_weather,$cond_weather);
+        //dd($);
         
         //記録ボタンが1日1回だけ押せるよう、whereで'user_id'カラムとログインユーザーのidが合致＋whereDateで当日記録したデータがあるか判断し、有る場合は$create_dayに代入
         $today = Carbon::today();
@@ -90,11 +117,6 @@ class MentalController extends Controller
         }
         
         return view('guest.mental.edit', ['mental_form' => $mental]);//bladeでeditアクションの$mentalを表す表示が'mental_form'という意味（blade内では「$」を頭に付ける）
-    }
-
-    public function back_page()
-    {
-        return back();
     }
 
     public function update(Request $request)
