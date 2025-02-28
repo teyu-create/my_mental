@@ -51,47 +51,44 @@ class MentalController extends Controller
         //$mentals = $request->user()->mentals; //ログインユーザーの記録が$mentalsに代入(例2)
 
         $cond_weather = $request->cond_weather;//formタグname属性のcond_weather＝$request->cond_weather
+        $new_day = $request->new_day;
+        $old_day = $request->old_day;
 
-        if ($cond_weather != null) {// 天気マークごとの絞込み機能
+        /*if ($cond_weather != null) {// 天気マークごとの絞込み機能
             
             $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->orderByDesc('created_at')->paginate(7);//orderByDescで絞込み後のデータを降順（新しい順）に。
         } else {
             //$mentals = Mental::paginate(7); 　←すべて(全ユーザー)のメンタル記録を取得するという意味になってしまっている
             $mentals = Mental::where('user_id', Auth::id())->orderByDesc('created_at')->paginate(7);
-        }
-
-        /*if ($cond_weather != null) {// 天気マークごとの絞込み機能
-            
-            $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->paginate(7);//orderByDescで絞込み後のデータを降順（新しい順）に。
-        } else {
-            //$mentals = Mental::paginate(7); 　←すべて(全ユーザー)のメンタル記録を取得するという意味になってしまっている
-            $mentals = Mental::where('user_id', Auth::id())->paginate(7);
-        }
-
-
-         
-        //並べ替え処理
-
-        $query = Mental::query();
-
-        $sortType = $request->input('sort','newest');
-
-        switch($sortType){
-            case 'oldest':
-                $query->orderBy('created_at');
-                break;
-            case 'newest':
-                $query->orderByDesc('created_at');
-                break;
-            default:
-                $query->orderByDesc('created_at');
-                break;
         }*/
 
 
 
+        if (($cond_weather == '全て' && $new_day != null)or(is_null($cond_weather) && is_null($new_day) && is_null($old_day))) {
+            //ラジオボタン＝"全て"の状態で"新しい順ボタン"をクリックor何も選択しない場合は、全ての記録を新しい順に表示
+            $mentals = Mental::where('user_id', Auth::id())->orderByDesc('created_at')->paginate(7); //orderByDesc＝降順（新）
+
+        }
+        elseif($cond_weather == '全て' && $old_day != null) {//全ての記録を古い順に表示
+
+            $mentals = Mental::where('user_id', Auth::id())->orderBy('created_at')->paginate(7);//orderBy＝昇順（古）
+
+        }
+        elseif ($cond_weather && $new_day != null) {//ラジオボタンで選択した天気の記録を新しい順に表示
+
+            $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->orderByDesc('created_at')->paginate(7);
+
+        }elseif ($cond_weather && $old_day != null) {//ラジオボタンで選択した天気の記録を古い順に表示 
+
+            $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->orderBy('created_at')->paginate(7);
+
+        }
+
+
+
+
         
-        //dd($);
+        //dd($cond_weather,$cond_all,$new_day,$old_day);
         
         //記録ボタンが1日1回だけ押せるよう、whereで'user_id'カラムとログインユーザーのidが合致＋whereDateで当日記録したデータがあるか判断し、有る場合は$create_dayに代入
         $today = Carbon::today();
