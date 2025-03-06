@@ -173,6 +173,23 @@
     --bs-gradient: none;
 }
 
+.btn-outline-info {
+  --bs-btn-color: #88604e;
+  --bs-btn-border-color: #88604e;
+  --bs-btn-hover-color: #FEFFB4;
+  --bs-btn-hover-bg: #88604e;
+  --bs-btn-hover-border-color: #88604e;
+  --bs-btn-focus-shadow-rgb: 248, 249, 250;
+  --bs-btn-active-color: #FEFFB4;
+  --bs-btn-active-bg: #88604e;
+  --bs-btn-active-border-color: #88604e;
+  --bs-btn-active-shadow: inset 0 3px 5px #FEFFB4;
+  --bs-btn-disabled-color: #88604e;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #88604e;
+  --bs-gradient: none;
+}
+
 a {
   color: #88604e;
   text-decoration: underline;

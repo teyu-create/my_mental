@@ -45,17 +45,13 @@
                   <input type="radio" class="form-check-input" name="cond_weather" value="全て" id="index-all" >
                   <label for="index-all">全て</label>
                 @endif
-                {{--<p>
-                  <input type="submit" name="sort_day" value="新しい順" >
-                  <input type="submit" name="sort_day" value="古い順" >
-                </p>--}}
                 <p>
                   @if(is_null($sort_day) or $sort_day == '新しい順')
-                    <input type="submit" class="btn btn-info btn-sm rounded-pill" name="sort_day" value="新しい順" >
-                    <input type="submit" class="btn btn-outline-danger btn-sm rounded-pill" name="sort_day" value="古い順" >
+                    <input type="submit" class="btn btn-primary btn-sm rounded-pill" name="sort_day" value="新しい順" >
+                    <input type="submit" class="btn btn-outline-info btn-sm rounded-pill" name="sort_day" value="古い順" >
                   @else
                     <input type="submit" class="btn btn-outline-info btn-sm rounded-pill" name="sort_day" value="新しい順" >
-                    <input type="submit" class="btn btn-danger btn-sm rounded-pill" name="sort_day" value="古い順" >
+                    <input type="submit" class="btn btn-primary btn-sm rounded-pill" name="sort_day" value="古い順" >
                   @endif
                 </p>
               </form>

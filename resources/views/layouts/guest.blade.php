@@ -62,6 +62,17 @@
                   </div>
                 </header>                
                 {{-- ここまでヘッダー --}}
+                
+                {{-- 編集完了フラッシュメッセージ --}}
+                @if(session('success'))
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <div class="text_center">
+                            {{ session('success')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                  </div>
+                @endif
+
                 <main>
                     {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                     @yield('content')

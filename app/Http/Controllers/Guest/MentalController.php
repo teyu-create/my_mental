@@ -123,6 +123,6 @@ class MentalController extends Controller
 
        // 該当するデータを上書きして保存する
        $mental->fill($mental_form)->save();
-       return redirect()->route('mental.list.index'); 
+       return redirect()->route('mental.list.index')->with('success','記録を更新しました！'); 
     }
 }
