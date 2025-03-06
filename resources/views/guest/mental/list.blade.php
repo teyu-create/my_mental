@@ -45,9 +45,18 @@
                   <input type="radio" class="form-check-input" name="cond_weather" value="全て" id="index-all" >
                   <label for="index-all">全て</label>
                 @endif
+                {{--<p>
+                  <input type="submit" name="sort_day" value="新しい順" >
+                  <input type="submit" name="sort_day" value="古い順" >
+                </p>--}}
                 <p>
-                  <input type="submit" name="new_day" value="新しい順" >
-                  <input type="submit" name="old_day" value="古い順" >
+                  @if(is_null($sort_day) or $sort_day == '新しい順')
+                    <input type="submit" class="btn btn-info btn-sm rounded-pill" name="sort_day" value="新しい順" >
+                    <input type="submit" class="btn btn-outline-danger btn-sm rounded-pill" name="sort_day" value="古い順" >
+                  @else
+                    <input type="submit" class="btn btn-outline-info btn-sm rounded-pill" name="sort_day" value="新しい順" >
+                    <input type="submit" class="btn btn-danger btn-sm rounded-pill" name="sort_day" value="古い順" >
+                  @endif
                 </p>
               </form>
             </div>
@@ -82,23 +91,11 @@
                                     @endif
                                     <td class="mental-table-body border-bottom-0 pt-0 pb-0">{{ $mental_date->go_or_home }}</td>
                                 </tr>
-                                {{--<tr>
+                                <tr>
                                      <td colspan="5" align="right" class="pt-0">
                                          <a href="{{ route('mental.edit', ['id' => $mental_date->id]) }}" role="button" class="btn btn-primary btn-sm rounded-pill">編集/詳細</a>
                                      </td>
-                                </tr>--}}
-                                <form action="{{ route('mental.edit') }}" method="get" >
-                                  <input type="hidden" name="id" value="{{$mental_date->id}}">
-                                  <input type="hidden" name="cond_weather" value="{{$cond_weather}}">
-                                  <input type="hidden" name="new_day" value="{{$new_day}}">
-                                  <input type="hidden" name="old_day" value="{{$old_day}}">
-                                  <tr>
-                                    <td colspan="5" align="right" class="pt-0">
-                                        <input type="submit" class="btn btn-primary btn-sm rounded-pill" role="button" value="編集/詳細">
-                                    </td>
-                                  </tr>
-                                </form>
-
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

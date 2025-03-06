@@ -51,34 +51,24 @@ class MentalController extends Controller
         //$mentals = $request->user()->mentals; //ログインユーザーの記録が$mentalsに代入(例2)
 
         $cond_weather = $request->cond_weather;//formタグname属性のcond_weather＝$request->cond_weather
-        $new_day = $request->new_day;
-        $old_day = $request->old_day;
-
-        /*if ($cond_weather != null) {// 天気マークごとの絞込み機能
-            
-            $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->orderByDesc('created_at')->paginate(7);//orderByDescで絞込み後のデータを降順（新しい順）に。
-        } else {
-            //$mentals = Mental::paginate(7); 　←すべて(全ユーザー)のメンタル記録を取得するという意味になってしまっている
-            $mentals = Mental::where('user_id', Auth::id())->orderByDesc('created_at')->paginate(7);
-        }*/
+        $sort_day = $request->sort_day;
 
 
-
-        if (($cond_weather == '全て' && $new_day != null)or(is_null($cond_weather) && is_null($new_day) && is_null($old_day))) {
+        if (($cond_weather == '全て' && $sort_day == '新しい順')or(is_null($cond_weather) && is_null($sort_day))) {
             //ラジオボタン＝"全て"の状態で"新しい順ボタン"をクリックor何も選択しない場合は、全ての記録を新しい順に表示
             $mentals = Mental::where('user_id', Auth::id())->orderByDesc('created_at')->paginate(7); //orderByDesc＝降順（新）
 
         }
-        elseif($cond_weather == '全て' && $old_day != null) {//全ての記録を古い順に表示
+        elseif($cond_weather == '全て' && $sort_day == '古い順') {//全ての記録を古い順に表示
 
             $mentals = Mental::where('user_id', Auth::id())->orderBy('created_at')->paginate(7);//orderBy＝昇順（古）
 
         }
-        elseif ($cond_weather && $new_day != null) {//ラジオボタンで選択した天気の記録を新しい順に表示
+        elseif ($cond_weather != null && $sort_day == '新しい順' ) {//ラジオボタンで選択した天気の記録を新しい順に表示
 
             $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->orderByDesc('created_at')->paginate(7);
 
-        }elseif ($cond_weather && $old_day != null) {//ラジオボタンで選択した天気の記録を古い順に表示 
+        }elseif ($cond_weather != null && $sort_day == '古い順' ) {//ラジオボタンで選択した天気の記録を古い順に表示 
 
             $mentals = Mental::where('user_id', Auth::id())->where('mental_weather', $cond_weather)->orderBy('created_at')->paginate(7);
 
@@ -86,7 +76,7 @@ class MentalController extends Controller
 
 
         
-        //dd($cond_weather,$cond_all,$new_day,$old_day);
+        //dd($cond_weather);
         
         //記録ボタンが1日1回だけ押せるよう、whereで'user_id'カラムとログインユーザーのidが合致＋whereDateで当日記録したデータがあるか判断し、有る場合は$create_dayに代入
         $today = Carbon::today();
@@ -97,11 +87,12 @@ class MentalController extends Controller
 
         
 
-        return view('guest.mental.list', ['cond_weather' => $cond_weather,'new_day' => $new_day, 'old_day' => $old_day, 'create_day' => $create_day,'mentals' => $mentals]);
+        return view('guest.mental.list', ['cond_weather' => $cond_weather,'sort_day' => $sort_day, 'create_day' => $create_day,'mentals' => $mentals]);
     }
 
     public function edit(Request $request)
     {
+
         // Mental Modelからログインユーザーのデータを取得する
         $mental = Mental::where('user_id', Auth::id())->where('id', $request->id)->first();
         // $mental = Mental::find($request->id);  ←だと別ユーザーが編集できてしまう
