@@ -82,11 +82,23 @@
                                     @endif
                                     <td class="mental-table-body border-bottom-0 pt-0 pb-0">{{ $mental_date->go_or_home }}</td>
                                 </tr>
-                                <tr>
+                                {{--<tr>
                                      <td colspan="5" align="right" class="pt-0">
                                          <a href="{{ route('mental.edit', ['id' => $mental_date->id]) }}" role="button" class="btn btn-primary btn-sm rounded-pill">編集/詳細</a>
                                      </td>
-                                </tr>
+                                </tr>--}}
+                                <form action="{{ route('mental.edit') }}" method="get" >
+                                  <input type="hidden" name="id" value="{{$mental_date->id}}">
+                                  <input type="hidden" name="cond_weather" value="{{$cond_weather}}">
+                                  <input type="hidden" name="new_day" value="{{$new_day}}">
+                                  <input type="hidden" name="old_day" value="{{$old_day}}">
+                                  <tr>
+                                    <td colspan="5" align="right" class="pt-0">
+                                        <input type="submit" class="btn btn-primary btn-sm rounded-pill" role="button" value="編集/詳細">
+                                    </td>
+                                  </tr>
+                                </form>
+
                             @endforeach
                         </tbody>
                     </table>
