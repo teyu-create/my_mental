@@ -42,25 +42,12 @@ class MentalController extends Controller
         $mental->fill($form);
         $mental->save();
 
-        /*ブラウザバックで二重登録を防ぐ
-        $request->session()->regenerateToken();*/
+        //ブラウザバックで二重登録を防ぐ
+        $request->session()->regenerateToken();
         
         return redirect()->route('mental.list.index');
     }
 
-    public function w_create()//ブラウザバックでの二重登録を防ぐ
-    {
-
-        $today = Carbon::today();
-
-        $create_day = Mental::where('user_id', Auth::id())->whereDate('created_at', $today)->get();//ログインユーザーの当日データが有ると、Collectionという型で取得され$create_dayに代入
-
-        if ($create_day != null) {
-
-            return redirect()->route('mental.list.index');
-    
-        }
-    }
 
     public function index(Request $request)
     {        
