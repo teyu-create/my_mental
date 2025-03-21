@@ -41,6 +41,8 @@ class MentalController extends Controller
         $mental->user_id = $request->user()->id;
         $mental->fill($form);
         $mental->save();
+        //ブラウザバックで二重登録を防ぐ
+        $request->session()->regenerateToken();
         
         return redirect()->route('mental.list.index');
     }

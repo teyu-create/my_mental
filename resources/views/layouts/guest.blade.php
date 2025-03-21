@@ -62,7 +62,7 @@
                   </div>
                 </header>                
                 {{-- ここまでヘッダー --}}
-                
+
                 {{-- 編集完了フラッシュメッセージ --}}
                 @if(session('success'))
                   <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -82,7 +82,7 @@
     </body>
     <footer class="footer">
         @guest
-            <!--未ログインの場合の処理はこの行に記述-->
+            {{--未ログインの場合の処理はこの行に記述--}}
          @else {{-- ログインしていたらログアウトボタンを表示 --}}
           <a class="btn btn-outline-light rounded-pill" href="{{ route('logout') }}" role="button" style="border-width:2.5px;font-weight:bold"
           onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>

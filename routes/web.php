@@ -31,4 +31,5 @@ Route::controller(MentalController::class)->middleware('auth')->group(function()
     Route::post('mental/edit','update')->name('mental.update');
 }); 
 
+
 Auth::routes();
